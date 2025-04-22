@@ -1,0 +1,16 @@
+{
+	"telemetryDisabled": false,
+	"cliId": "a1f8eb33-c051-40ab-b87b-f6e73fb629dd",
+	"userId": "66e7fafd0c4251f9c100b00a",
+	"users": {
+		"66e7fafd0c4251f9c100b00a": {
+			"id": "66e7fafd0c4251f9c100b00a",
+			"name": "Sathvik Acharya",
+			"email": "sathvikacharya88@gmail.com",
+			"auth": {
+				"token": "nfc_ncAEqdkU5KPNpw81wPMh917nS9boh53P9869",
+				"github": {}
+			}
+		}
+	}
+}
