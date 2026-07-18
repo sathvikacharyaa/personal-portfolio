@@ -906,24 +906,19 @@
     .hamburger-btn.open .hamburger-bar:nth-child(2) { opacity: 0 }
     .hamburger-btn.open .hamburger-bar:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg) }
 
-    /* Nav fullscreen menu — hidden on desktop, fullscreen overlay on mobile */
+    /* Nav fullscreen menu — outside <nav>, pure AMOLED black overlay */
     .nav-menu {
       position: fixed;
       inset: 0;
       background: #000;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      padding: 0 40px;
       opacity: 0;
       visibility: hidden;
       pointer-events: none;
-      transition: opacity .35s ease, visibility .35s ease;
-      z-index: 9999;
-      gap: 0
+      transition: opacity .3s ease, visibility .3s ease;
+      z-index: 9999
     }
-    /* On desktop, keep it fully out of the way */
     @media (min-width: 601px) {
       .nav-menu { display: none !important }
     }
@@ -932,27 +927,84 @@
       visibility: visible;
       pointer-events: auto
     }
-    .nav-menu-link {
-      font-family: 'Barlow Condensed', 'Impact', 'Arial Narrow', sans-serif;
-      font-size: clamp(44px, 14vw, 72px);
-      font-weight: 800;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.2);
-      text-decoration: none;
-      padding: 6px 0;
-      width: 100%;
-      display: block;
-      opacity: 0;
-      transform: translateY(16px);
-      transition: color .2s ease, opacity .3s ease, transform .3s ease
+
+    /* Header bar inside the menu */
+    .nav-menu-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,.07)
     }
-    .nav-menu.open .nav-menu-link:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: .05s }
-    .nav-menu.open .nav-menu-link:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: .10s }
-    .nav-menu.open .nav-menu-link:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: .15s }
-    .nav-menu.open .nav-menu-link:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: .20s }
-    .nav-menu.open .nav-menu-link:nth-child(5) { opacity: 1; transform: translateY(0); transition-delay: .25s }
-    .nav-menu-link:hover { color: #fff }
+    .nav-menu-logo {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: .01em;
+      color: #fff;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0
+    }
+    .nav-menu-close {
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      padding: 4px;
+      width: 28px;
+      height: 28px
+    }
+    /* Reuse hamburger-bar styles — animate into X */
+    .nav-menu-close .hamburger-bar {
+      display: block;
+      width: 20px;
+      height: 1.5px;
+      background: #fff;
+      border-radius: 2px;
+      transition: transform .3s ease, opacity .3s ease
+    }
+    .nav-menu-close .hamburger-bar:nth-child(1) { transform: translateY(6.5px) rotate(45deg) }
+    .nav-menu-close .hamburger-bar:nth-child(2) { opacity: 0 }
+    .nav-menu-close .hamburger-bar:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg) }
+
+    /* Centred links container */
+    .nav-menu-links {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px
+    }
+    .nav-menu-link {
+      font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+      font-size: clamp(28px, 9vw, 48px);
+      font-weight: 700;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 0;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .35s ease, transform .35s ease, color .2s ease
+    }
+    .nav-menu.open .nav-menu-link:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: .08s }
+    .nav-menu.open .nav-menu-link:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: .13s }
+    .nav-menu.open .nav-menu-link:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: .18s }
+    .nav-menu.open .nav-menu-link:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: .23s }
+    .nav-menu.open .nav-menu-link:nth-child(5) { opacity: 1; transform: translateY(0); transition-delay: .28s }
+    .nav-menu-link:active { color: rgba(255,255,255,.5) }
 
     /* Footer socials */
     .footer-socials {
@@ -1668,11 +1720,23 @@
 
   <!-- Mobile fullscreen menu — outside <nav> so it's not trapped in nav's stacking context -->
   <div class="nav-menu" id="navMenu">
-    <a class="nav-menu-link" href="#experience" onclick="closeMenu()">Experience</a>
-    <a class="nav-menu-link" href="#built" onclick="closeMenu()">Things I've Built</a>
-    <a class="nav-menu-link" href="#projects-section" onclick="closeMenu()">Projects</a>
-    <a class="nav-menu-link" href="#education" onclick="closeMenu()">Education</a>
-    <a class="nav-menu-link" href="#skills" onclick="closeMenu()">Skills</a>
+    <!-- Menu header: logo (→ home) + close button -->
+    <div class="nav-menu-header">
+      <button class="nav-menu-logo" onclick="goHome(); closeMenu()">Sathvik Acharya</button>
+      <button class="nav-menu-close" onclick="closeMenu()" aria-label="Close menu">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+    </div>
+    <!-- Centred links -->
+    <nav class="nav-menu-links">
+      <a class="nav-menu-link" href="#experience" onclick="closeMenu()">Experience</a>
+      <a class="nav-menu-link" href="#built" onclick="closeMenu()">Things I've Built</a>
+      <a class="nav-menu-link" href="#projects-section" onclick="closeMenu()">Projects</a>
+      <a class="nav-menu-link" href="#education" onclick="closeMenu()">Education</a>
+      <a class="nav-menu-link" href="#skills" onclick="closeMenu()">Skills</a>
+    </nav>
   </div>
 
   <main id="main">
