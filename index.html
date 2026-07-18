@@ -799,7 +799,7 @@
       font-family: 'Space Mono', monospace;
       font-size: 11px;
       letter-spacing: .15em;
-      
+      text-transform: uppercase;
       color: var(--g3);
       text-decoration: none;
       transition: color .2s;
@@ -919,23 +919,22 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 8px
+      gap: 2px
     }
     .nav-menu.open { display: flex }
-    @media (min-width: 861px) { .nav-menu { display: none !important } }
+    @media (min-width: 901px) { .nav-menu { display: none !important } }
     .nav-menu-link {
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-family: Impact, 'Arial Narrow', Arial, sans-serif;
       font-size: 36px;
-      font-weight: 700;
+      font-weight: 400;
       letter-spacing: .03em;
-      text-transform: none;
+      text-transform: uppercase;
       color: rgba(255,255,255,.45);
       text-decoration: none;
-      padding: 10px 0;
+      padding: 4px 0;
       display: block;
       text-align: center
     }
-    .nav-menu-link:hover { color: #fff }
     .nav-menu-link:active { opacity: .5 }
 
     /* Footer socials */
@@ -1026,7 +1025,7 @@
     }
     .built-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      grid-template-columns: 1fr 1fr;
       gap: 16px
     }
     .built-item {
@@ -1535,7 +1534,7 @@
       color: #fff;
       border-color: rgba(255,255,255,.35)
     }
-    @media(max-width:860px) {
+    @media(max-width:600px) {
       #lb-prev { left: 8px }
       #lb-next { right: 8px }
       .lb-arrow { width: 34px; height: 34px }
@@ -1550,7 +1549,7 @@
       to { opacity: 1; transform: translateY(0) }
     }
 
-    @media(max-width:860px) {
+    @media(max-width:900px) {
       nav { padding: 12px 20px }
       .nav-links { gap: 12px }
       .nav-links a, .nav-btn { font-size: 11px; letter-spacing: .1em }
@@ -1569,7 +1568,7 @@
       /* Show hamburger, hide desktop nav links */
       .hamburger-btn { display: flex }
       .nav-inline-links { display: none }
-      /* Show stats, compact */
+      /* Show stats on mobile, compact */
       .nav-stats { display: flex; margin-right: auto; gap: 8px }
       .nav-controls { margin-left: 8px; gap: 8px }
       /* Break @KwantumG onto its own line */
