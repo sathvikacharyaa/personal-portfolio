@@ -1688,7 +1688,7 @@
   <!-- Mobile fullscreen menu — outside <nav> so it's not trapped in nav's stacking context -->
   <div class="nav-menu" id="navMenu">
     <div class="nav-menu-header">
-      <button class="nav-menu-logo" onclick="goHome()">Sathvik Acharya</button>
+      <button class="nav-menu-logo" onclick="closeMenu(); window.scrollTo({top:0,behavior:'smooth'})">Sathvik Acharya</button>
       <button class="nav-menu-close" onclick="closeMenu()" aria-label="Close menu">&#10005;</button>
     </div>
     <nav class="nav-menu-links">
@@ -2256,8 +2256,8 @@
       overlay.classList.remove('open');
       document.getElementById('main').classList.remove('blurred');
       document.getElementById('nav').classList.remove('blurred');
-      // If the URL still has a hash from openWork, go back to remove it
-      if (window.location.hash) {
+      // Only go back if we pushed a state when opening work
+      if (history.state && history.state.workOpen) {
         history.back();
       }
     }
