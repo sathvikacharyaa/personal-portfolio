@@ -920,7 +920,7 @@
       visibility: hidden;
       pointer-events: none;
       transition: opacity .35s ease, visibility .35s ease;
-      z-index: 501;
+      z-index: 9999;
       gap: 0
     }
     /* On desktop, keep it fully out of the way */
@@ -1664,15 +1664,16 @@
         <span class="hamburger-bar"></span>
       </button>
     </div>
-    <!-- Mobile dropdown -->
-    <div class="nav-menu" id="navMenu">
-      <a class="nav-menu-link" href="#experience" onclick="closeMenu()">Experience</a>
-      <a class="nav-menu-link" href="#built" onclick="closeMenu()">Things I've Built</a>
-      <a class="nav-menu-link" href="#projects-section" onclick="closeMenu()">Projects</a>
-      <a class="nav-menu-link" href="#education" onclick="closeMenu()">Education</a>
-      <a class="nav-menu-link" href="#skills" onclick="closeMenu()">Skills</a>
-    </div>
   </nav>
+
+  <!-- Mobile fullscreen menu — outside <nav> so it's not trapped in nav's stacking context -->
+  <div class="nav-menu" id="navMenu">
+    <a class="nav-menu-link" href="#experience" onclick="closeMenu()">Experience</a>
+    <a class="nav-menu-link" href="#built" onclick="closeMenu()">Things I've Built</a>
+    <a class="nav-menu-link" href="#projects-section" onclick="closeMenu()">Projects</a>
+    <a class="nav-menu-link" href="#education" onclick="closeMenu()">Education</a>
+    <a class="nav-menu-link" href="#skills" onclick="closeMenu()">Skills</a>
+  </div>
 
   <main id="main">
     <section id="hero">
