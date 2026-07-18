@@ -10,7 +10,7 @@
   <link rel="icon" type="image/png" href="images/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link
-    href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap"
     rel="stylesheet">
   <style>
     :root {
@@ -444,6 +444,24 @@
 
     #experience .section-label { margin-bottom: 0 }
 
+    /* Align company name and role text to the same left edge */
+    #experience .exp-inst-row {
+      gap: 10px
+    }
+    #experience .exp-title-row {
+      padding-left: 38px;  /* 28px icon + 10px gap = matches exp-inst-name start */
+      position: relative
+    }
+    #experience .exp-title-left {
+      gap: 0
+    }
+    #experience .proj-expand-btn {
+      position: absolute;
+      left: 7px;  /* visually centred in the 28px icon zone */
+      top: 2px;
+      padding: 0
+    }
+
     .exp-item {
       padding: 6px 0 14px 0;
       border-bottom: 1px solid rgba(255, 255, 255, .07);
@@ -860,7 +878,7 @@
       margin-left: 24px
     }
 
-    /* Hamburger button — hidden on desktop */
+    /* Hamburger button — hidden on desktop, shown on mobile */
     .hamburger-btn {
       background: none;
       border: none;
@@ -886,7 +904,7 @@
     .hamburger-btn.open .hamburger-bar:nth-child(2) { opacity: 0 }
     .hamburger-btn.open .hamburger-bar:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg) }
 
-    /* Nav dropdown menu — hidden on desktop */
+    /* Nav dropdown menu — hidden on desktop, flex on mobile */
     .nav-menu {
       position: absolute;
       top: calc(100% + 8px);
@@ -894,8 +912,8 @@
       background: rgba(10,10,10,.96);
       border: 1px solid rgba(255,255,255,.1);
       border-radius: 10px;
-      padding: 6px 0;
-      min-width: 180px;
+      padding: 8px 0;
+      min-width: 200px;
       display: none;
       flex-direction: column;
       backdrop-filter: blur(16px);
@@ -913,12 +931,13 @@
     }
     .nav-menu-link {
       font-family: 'Inter', sans-serif;
-      font-size: 11px;
-      letter-spacing: .15em;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: .06em;
       text-transform: uppercase;
-      color: var(--g2);
+      color: var(--g1);
       text-decoration: none;
-      padding: 11px 18px;
+      padding: 13px 20px;
       transition: color .15s, background .15s
     }
     .nav-menu-link:hover {
@@ -1554,6 +1573,10 @@
       .work-gallery { grid-template-columns: 1fr }
       .work-body { padding: 28px 20px 60px }
       .work-header { padding: 12px 20px }
+      /* Show hamburger, hide desktop nav links */
+      .hamburger-btn { display: flex }
+      .nav-inline-links { display: none }
+      .nav-menu { display: flex; right: 20px }
     }
   </style>
 </head>
@@ -1655,6 +1678,27 @@
         <div class="hero-switch">
           <span class="hero-switch-text" id="hero-switch-el">M.Sc Physics student</span>
         </div>
+        <!-- Present status card -->
+        <div class="hero-status" style="opacity:0;animation:fadeUp .6s ease 3.1s forwards">
+          <div class="hero-status-row">
+            <div class="hero-status-icon">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+            </div>
+            <span class="hero-status-text">Quantum Computing Intern <span class="hero-status-at">@KwantumG Research Labs</span></span>
+          </div>
+          <div class="hero-status-row">
+            <div class="hero-status-icon">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <span class="hero-status-text">Mangaluru</span>
+            <div class="hero-status-sep"></div>
+            <div class="hero-status-icon">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <span class="hero-status-text" id="hero-ist-clock">--:-- --</span>
+          </div>
+        </div>
+
         <div class="hero-socials">
           <a href="https://x.com/sathvikacharyaa" target="_blank" aria-label="X (Twitter)">
             <svg viewBox="0 0 24 24" fill="currentColor">
@@ -1682,27 +1726,6 @@
           </a>
         </div>
 
-        <!-- Present status card -->
-        <div class="hero-status" style="opacity:0;animation:fadeUp .6s ease 3.1s forwards">
-          <div class="hero-status-row">
-            <div class="hero-status-icon">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
-            </div>
-            <span class="hero-status-text">Quantum Computing Intern <span class="hero-status-at">@KwantumG Research Labs</span></span>
-          </div>
-          <div class="hero-status-row">
-            <div class="hero-status-icon">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            </div>
-            <span class="hero-status-text">Mangaluru</span>
-            <div class="hero-status-sep"></div>
-            <div class="hero-status-icon">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            </div>
-            <span class="hero-status-text" id="hero-ist-clock">--:-- --</span>
-          </div>
-        </div>
-
       </div>
     </section>
 
@@ -1710,6 +1733,33 @@
 
     <section id="experience">
       <div class="section-label">Experience</div>
+      <div class="exp-item">
+        <div class="proj-card">
+          <div class="exp-inst-row">
+            <div class="edu-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+            </div>
+            <div class="exp-inst-name">KwantumG Research Labs Pvt Ltd</div>
+          </div>
+          <div class="exp-title-row">
+            <div class="exp-title-left">
+              <button class="proj-expand-btn" onclick="toggleProjDesc(this)" aria-expanded="false" title="Show details">
+                <svg class="proj-chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 12 3 18 8"/><polyline points="6 16 12 21 18 16"/></svg>
+              </button>
+              <div>
+                <div class="exp-role">Quantum Computing Intern</div>
+                <div class="exp-meta-row">
+                  <span class="exp-date">Jun 2026 &mdash; Present</span>
+                  <span class="exp-meta-sep">|</span>
+                  <span class="exp-date">Remote</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="proj-desc-collapse">
+          </div>
+        </div>
+      </div>
       <div class="exp-item">
         <div class="proj-card">
           <div class="exp-inst-row">
