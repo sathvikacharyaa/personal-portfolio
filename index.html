@@ -983,7 +983,8 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 4px
+      gap: 4px;
+      padding-top: 60px
     }
     .nav-menu-link {
       font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
@@ -2311,6 +2312,14 @@
       }
     });
 
+    function closeMenu() {
+      var btn = document.getElementById('hamburgerBtn');
+      var menu = document.getElementById('navMenu');
+      menu.classList.remove('open');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+
     function goHome() {
       closeWork();
       closeMenu();
@@ -2456,14 +2465,6 @@
             el.textContent = Math.max(0, cur - 1).toLocaleString();
           });
       }
-    }
-    // ──────────────────────────────────────────────────────────────────────
-    function closeMenu() {
-      var btn = document.getElementById('hamburgerBtn');
-      var menu = document.getElementById('navMenu');
-      menu.classList.remove('open');
-      btn.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
     }
     document.addEventListener('click', function(e) {
       // fullscreen menu — no outside-click dismiss needed; links call closeMenu() directly
