@@ -790,8 +790,7 @@
       display: flex;
       list-style: none;
       gap: 28px;
-      align-items: center;
-      margin-left: auto
+      align-items: center
     }
     .nav-inline-link {
       font-family: 'Space Mono', monospace;
@@ -821,7 +820,7 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      margin-right: 20px
+      margin-right: auto
     }
     .nav-stat {
       display: flex;
@@ -1579,7 +1578,7 @@
       .nav-inline-links { display: none }
       .nav-menu { display: flex }
       /* Show stats on mobile, compact */
-      .nav-stats { display: flex; margin-right: 0; gap: 8px }
+      .nav-stats { display: flex; margin-right: auto; gap: 8px }
       .nav-controls { margin-left: 8px; gap: 8px }
       /* Break @KwantumG onto its own line */
       .hero-status-at { display: block }
@@ -1622,7 +1621,7 @@
 
   <nav id="nav">
     <button class="nav-logo" onclick="goHome()"></button>
-    <!-- Visit & like stats -->
+    <!-- Visit & like stats — left of nav, visible on both desktop and mobile -->
     <div class="nav-stats">
       <div class="nav-stat" title="Total visits">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
@@ -2251,36 +2250,40 @@
     }
 
     // ── Visit & Like counters ──────────────────────────────────────────────
-    // Uses CountAPI (countapi.xyz) — free, persistent, no auth needed.
-    // Namespace: sathvikacharyaa-portfolio  (change to your own unique string)
+    // Uses counterapi.dev — free, persistent, no auth needed.
     var CA_NS  = 'sathvikacharyaa-portfolio';
     var CA_VIS = 'visits';
     var CA_LIK = 'likes';
+    var CA_BASE = 'https://api.counterapi.dev/v1/' + CA_NS + '/';
 
     function animateCount(el, target) {
-      var start = 0;
-      var dur   = 900;
-      var step  = Math.ceil(target / (dur / 16));
+      var start = parseInt(el.textContent.replace(/,/g,'')) || 0;
+      if (start === target) { el.textContent = target.toLocaleString(); return; }
+      var dur   = 700;
+      var diff  = target - start;
+      var step  = diff / (dur / 16);
       var timer = setInterval(function() {
         start += step;
-        if (start >= target) { start = target; clearInterval(timer); }
-        el.textContent = start.toLocaleString();
+        var done = step > 0 ? start >= target : start <= target;
+        if (done) { start = target; clearInterval(timer); }
+        el.textContent = Math.round(start).toLocaleString();
       }, 16);
     }
 
-    // Hit visit counter on load
-    fetch('https://api.countapi.xyz/hit/' + CA_NS + '/' + CA_VIS)
+    // Hit visit counter on every page load — increments and returns new value
+    fetch(CA_BASE + CA_VIS + '/up')
       .then(function(r){ return r.json(); })
       .then(function(d){
-        animateCount(document.getElementById('visit-count'), d.value);
+        var v = d.count !== undefined ? d.count : (d.value || 0);
+        animateCount(document.getElementById('visit-count'), v);
       })
       .catch(function(){ document.getElementById('visit-count').textContent = '—'; });
 
-    // Load like count (read only, no hit)
-    fetch('https://api.countapi.xyz/get/' + CA_NS + '/' + CA_LIK)
+    // Load like count (read only)
+    fetch(CA_BASE + CA_LIK)
       .then(function(r){ return r.json(); })
       .then(function(d){
-        var v = d.value || 0;
+        var v = d.count !== undefined ? d.count : (d.value || 0);
         document.getElementById('like-count').textContent = v.toLocaleString();
         if (localStorage.getItem('sa_liked') === '1') {
           var btn  = document.getElementById('likeBtn');
@@ -2294,9 +2297,9 @@
       .catch(function(){ document.getElementById('like-count').textContent = '—'; });
 
     function handleLike() {
-      var btn  = document.getElementById('likeBtn');
-      var icon = document.getElementById('likeIcon');
-      var el   = document.getElementById('like-count');
+      var btn   = document.getElementById('likeBtn');
+      var icon  = document.getElementById('likeIcon');
+      var el    = document.getElementById('like-count');
       var liked = localStorage.getItem('sa_liked') === '1';
 
       if (!liked) {
@@ -2307,9 +2310,12 @@
         icon.setAttribute('fill', '#e05a5a');
         icon.setAttribute('stroke', '#e05a5a');
         btn.addEventListener('animationend', function(){ btn.classList.remove('pop'); }, { once: true });
-        fetch('https://api.countapi.xyz/hit/' + CA_NS + '/' + CA_LIK)
+        fetch(CA_BASE + CA_LIK + '/up')
           .then(function(r){ return r.json(); })
-          .then(function(d){ animateCount(el, d.value); })
+          .then(function(d){
+            var v = d.count !== undefined ? d.count : (d.value || 0);
+            animateCount(el, v);
+          })
           .catch(function(){
             var cur = parseInt(el.textContent.replace(/,/g,'')) || 0;
             el.textContent = (cur + 1).toLocaleString();
@@ -2321,17 +2327,11 @@
         btn.title = 'Like this site';
         icon.setAttribute('fill', 'none');
         icon.setAttribute('stroke', 'currentColor');
-        // Decrement via update endpoint (set to current - 1)
-        fetch('https://api.countapi.xyz/get/' + CA_NS + '/' + CA_LIK)
+        fetch(CA_BASE + CA_LIK + '/down')
           .then(function(r){ return r.json(); })
           .then(function(d){
-            var next = Math.max(0, (d.value || 1) - 1);
-            return fetch('https://api.countapi.xyz/set/' + CA_NS + '/' + CA_LIK + '?value=' + next);
-          })
-          .then(function(r){ return r.json(); })
-          .then(function(d){
-            var cur = parseInt(el.textContent.replace(/,/g,'')) || 1;
-            el.textContent = Math.max(0, cur - 1).toLocaleString();
+            var v = d.count !== undefined ? d.count : (d.value || 0);
+            animateCount(el, Math.max(0, v));
           })
           .catch(function(){
             var cur = parseInt(el.textContent.replace(/,/g,'')) || 1;
