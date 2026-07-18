@@ -999,11 +999,11 @@
       transform: translateY(20px);
       transition: opacity .35s ease, transform .35s ease, color .2s ease
     }
-    .nav-menu.open .nav-menu-link:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: .08s }
-    .nav-menu.open .nav-menu-link:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: .13s }
-    .nav-menu.open .nav-menu-link:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: .18s }
-    .nav-menu.open .nav-menu-link:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: .23s }
-    .nav-menu.open .nav-menu-link:nth-child(5) { opacity: 1; transform: translateY(0); transition-delay: .28s }
+    .nav-menu.open .nav-menu-links .nav-menu-link:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: .08s }
+    .nav-menu.open .nav-menu-links .nav-menu-link:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: .13s }
+    .nav-menu.open .nav-menu-links .nav-menu-link:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: .18s }
+    .nav-menu.open .nav-menu-links .nav-menu-link:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: .23s }
+    .nav-menu.open .nav-menu-links .nav-menu-link:nth-child(5) { opacity: 1; transform: translateY(0); transition-delay: .28s }
     .nav-menu-link:active { color: rgba(255,255,255,.5) }
 
     /* Footer socials */
@@ -1722,7 +1722,7 @@
   <div class="nav-menu" id="navMenu">
     <!-- Menu header: logo (→ home) + close button -->
     <div class="nav-menu-header">
-      <button class="nav-menu-logo" onclick="goHome(); closeMenu()">Sathvik Acharya</button>
+      <button class="nav-menu-logo" onclick="goHome()">Sathvik Acharya</button>
       <button class="nav-menu-close" onclick="closeMenu()" aria-label="Close menu">
         <span class="hamburger-bar"></span>
         <span class="hamburger-bar"></span>
@@ -2088,19 +2088,41 @@
     function pronounceName() {
       if (!window.speechSynthesis) return;
       var btn = document.getElementById('pronounceBtn');
+
+      // Stop if already speaking
       if (window.speechSynthesis.speaking) {
         window.speechSynthesis.cancel();
         btn.classList.remove('speaking');
         return;
       }
-      var u = new SpeechSynthesisUtterance('Suth-vik Uh-chur-yuh');
-      u.rate  = 0.85;
-      u.pitch = 1;
-      u.lang  = 'en-IN';
-      u.onstart = function() { btn.classList.add('speaking'); };
-      u.onend   = function() { btn.classList.remove('speaking'); };
-      u.onerror = function() { btn.classList.remove('speaking'); };
-      window.speechSynthesis.speak(u);
+
+      function doSpeak() {
+        var u = new SpeechSynthesisUtterance('Suth-vik Uh-chur-yuh');
+        u.rate  = 0.85;
+        u.pitch = 1;
+        u.lang  = 'en-IN';
+        u.onstart = function() { btn.classList.add('speaking'); };
+        u.onend   = function() { btn.classList.remove('speaking'); };
+        u.onerror = function() { btn.classList.remove('speaking'); };
+        // iOS mobile fix: cancel any pending queue then speak
+        window.speechSynthesis.cancel();
+        window.speechSynthesis.speak(u);
+      }
+
+      // Android/iOS fix: voices may not be loaded yet on first tap
+      var voices = window.speechSynthesis.getVoices();
+      if (voices.length) {
+        doSpeak();
+      } else {
+        window.speechSynthesis.onvoiceschanged = function() {
+          window.speechSynthesis.onvoiceschanged = null;
+          doSpeak();
+        };
+        // Fallback: if onvoiceschanged never fires (some browsers), try after short delay
+        setTimeout(function() {
+          if (!window.speechSynthesis.speaking) doSpeak();
+        }, 250);
+      }
     }
     // ─────────────────────────────────────────────────────────────────────
 
@@ -2291,6 +2313,7 @@
 
     function goHome() {
       closeWork();
+      closeMenu();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
