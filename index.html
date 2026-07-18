@@ -2192,13 +2192,32 @@
       document.getElementById('main').classList.add('blurred');
       document.getElementById('nav').classList.add('blurred');
       document.getElementById('work-overlay').scrollTop = 0;
+
+      // Push a history entry so the browser back button closes the overlay
+      history.pushState({ workOpen: true, key: key }, '', '#' + key);
     }
 
     function closeWork() {
-      document.getElementById('work-overlay').classList.remove('open');
+      var overlay = document.getElementById('work-overlay');
+      if (!overlay.classList.contains('open')) return;
+      overlay.classList.remove('open');
       document.getElementById('main').classList.remove('blurred');
       document.getElementById('nav').classList.remove('blurred');
+      // If the URL still has a hash from openWork, go back to remove it
+      if (window.location.hash) {
+        history.back();
+      }
     }
+
+    // Handle browser back button — close overlay when history pops back
+    window.addEventListener('popstate', function(e) {
+      var overlay = document.getElementById('work-overlay');
+      if (overlay.classList.contains('open')) {
+        overlay.classList.remove('open');
+        document.getElementById('main').classList.remove('blurred');
+        document.getElementById('nav').classList.remove('blurred');
+      }
+    });
 
     function goHome() {
       closeWork();
