@@ -906,79 +906,36 @@
     .hamburger-btn.open .hamburger-bar:nth-child(2) { opacity: 0 }
     .hamburger-btn.open .hamburger-bar:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg) }
 
-    /* Nav fullscreen menu */
+    /* Mobile nav dropdown */
     .nav-menu {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: #000;
       display: none;
-      flex-direction: column;
+      position: fixed;
+      top: 53px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #000;
       z-index: 9999;
-      overflow: hidden
-    }
-    .nav-menu.open {
-      display: flex
-    }
-    .nav-menu-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px 20px;
-      border-bottom: 1px solid rgba(255,255,255,.08);
-      flex-shrink: 0;
-      height: 52px
-    }
-    .nav-menu-logo {
-      font-family: 'Inter', sans-serif;
-      font-size: 14px;
-      font-weight: 500;
-      color: #fff;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0
-    }
-    .nav-menu-close {
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: #fff;
-      font-size: 24px;
-      line-height: 1;
-      padding: 4px 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center
-    }
-    .nav-menu-links {
-      display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      width: 100%;
-      height: calc(100% - 52px);
-      gap: 0
+      gap: 8px
     }
+    .nav-menu.open { display: flex }
+    @media (min-width: 601px) { .nav-menu { display: none !important } }
     .nav-menu-link {
-      font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-      font-size: clamp(32px, 10vw, 52px);
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 36px;
       font-weight: 700;
-      letter-spacing: .02em;
+      letter-spacing: .03em;
       text-transform: uppercase;
       color: #fff;
       text-decoration: none;
-      padding: 10px 20px;
-      text-align: center;
+      padding: 10px 0;
       display: block;
-      width: 100%
+      text-align: center
     }
-    .nav-menu-link:active { opacity: .6 }
-    @media (min-width: 601px) {
-      .nav-menu { display: none !important }
-    }
+    .nav-menu-link:active { opacity: .5 }
 
     /* Footer socials */
     .footer-socials {
@@ -1692,19 +1649,13 @@
     </div>
   </nav>
 
-  <!-- Mobile fullscreen menu — outside <nav> so it's not trapped in nav's stacking context -->
-  <div class="nav-menu" id="navMenu">
-    <div class="nav-menu-header">
-      <button class="nav-menu-logo" onclick="closeMenu(); window.scrollTo({top:0,behavior:'smooth'})">Sathvik Acharya</button>
-      <button class="nav-menu-close" onclick="closeMenu()" aria-label="Close menu">&#10005;</button>
-    </div>
-    <nav class="nav-menu-links">
-      <a class="nav-menu-link" href="#experience" onclick="closeMenu()">Experience</a>
-      <a class="nav-menu-link" href="#built" onclick="closeMenu()">Things I've Built</a>
-      <a class="nav-menu-link" href="#projects-section" onclick="closeMenu()">Projects</a>
-      <a class="nav-menu-link" href="#education" onclick="closeMenu()">Education</a>
-      <a class="nav-menu-link" href="#skills" onclick="closeMenu()">Skills</a>
-    </nav>
+  <!-- Mobile menu -->
+  <div id="navMenu" class="nav-menu">
+    <a class="nav-menu-link" href="#experience" onclick="closeMenu()">Experience</a>
+    <a class="nav-menu-link" href="#built" onclick="closeMenu()">Things I've Built</a>
+    <a class="nav-menu-link" href="#projects-section" onclick="closeMenu()">Projects</a>
+    <a class="nav-menu-link" href="#education" onclick="closeMenu()">Education</a>
+    <a class="nav-menu-link" href="#skills" onclick="closeMenu()">Skills</a>
   </div>
 
   <main id="main">
