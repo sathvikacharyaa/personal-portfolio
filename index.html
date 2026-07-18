@@ -7,34 +7,18 @@
   <meta name="color-scheme" content="dark">
   <meta name="theme-color" content="#000000">
   <title>Sathvik Acharya</title>
-  <link rel="icon" type="image/png" href="logo.png">
-  <script>
-    try {
-      var t = localStorage.getItem('theme');
-      if (t === 'dark') {
-        document.documentElement.classList.add('pre-dark');
-        document.documentElement.style.background = '#0d0d0d';
-      } else {
-        document.documentElement.style.background = '#000';
-      }
-    } catch (e) {
-      document.documentElement.style.background = '#000';
-    }
-  </script>
+  <link rel="icon" type="image/png" href="images/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link
     href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap"
     rel="stylesheet">
   <style>
-    html.pre-dark {
-      background: #0d0d0d
-    }
-
     :root {
       --g1: #f0f0f0;
       --g2: #c8c8c8;
       --g3: #999;
       --bg: #000;
+      --nav-bg: rgba(0, 0, 0, .85);
       --cb: rgba(255, 255, 255, .07);
       --cc: rgba(255, 255, 255, .12);
       --dv: rgba(255, 255, 255, .1)
@@ -42,122 +26,7 @@
 
     body.dark-mode {
       --bg: #0d0d0d;
-      --cb: rgba(255, 255, 255, .08);
-      --cc: rgba(255, 255, 255, .14);
-      --dv: rgba(255, 255, 255, .12);
-      --g3: #aaa;
-      --g2: #ccc
-    }
-
-    body.light-mode {
-      --bg: #e8e5df;
-      --cb: rgba(0, 0, 0, .06);
-      --cc: rgba(0, 0, 0, .12);
-      --dv: rgba(0, 0, 0, .1);
-      --g1: #1a1814;
-      --g2: #1a1814;
-      --g3: #2e2b26;
-      color: #1a1814;
-      background: #e8e5df
-    }
-
-    body.light-mode nav {
-      background: rgba(232, 229, 223, .88);
-      border-bottom-color: rgba(0, 0, 0, .1)
-    }
-
-    body.light-mode .theme-toggle {
-      border-color: rgba(0, 0, 0, .18)
-    }
-
-    body.light-mode .theme-toggle:hover {
-      border-color: rgba(0, 0, 0, .45);
-      color: #1a1814;
-      background: rgba(0, 0, 0, .06)
-    }
-
-    body.light-mode .nav-links a::after,
-    body.light-mode .nav-btn::after {
-      background: #1a1814
-    }
-
-    body.light-mode .nav-links a:hover,
-    body.light-mode .nav-btn:hover,
-    body.light-mode .nav-logo:hover {
-      color: #1a1814
-    }
-
-    body.light-mode .exp-item,
-    body.light-mode .edu-item {
-      border-color: rgba(0, 0, 0, .1)
-    }
-
-    body.light-mode .exp-item:first-child,
-    body.light-mode .edu-item:first-child {
-      border-top-color: rgba(0, 0, 0, .1)
-    }
-
-    body.light-mode .skill-tag {
-      border-color: rgba(0, 0, 0, .12);
-      background: rgba(0, 0, 0, .04)
-    }
-
-    body.light-mode .skill-tag:hover {
-      border-color: rgba(0, 0, 0, .3);
-      background: rgba(0, 0, 0, .08)
-    }
-
-    body.light-mode .skill-tag .sk-ch {
-      color: var(--g2)
-    }
-
-    body.light-mode .skill-tag:hover .sk-ch {
-      color: #1a1814
-    }
-
-    body.light-mode .proj-header {
-      background: rgba(232, 229, 223, .9);
-      border-bottom-color: rgba(0, 0, 0, .1)
-    }
-
-    body.light-mode .proj-close {
-      border-color: rgba(0, 0, 0, .18)
-    }
-
-    body.light-mode .proj-close:hover {
-      color: #1a1814;
-      border-color: rgba(0, 0, 0, .5)
-    }
-
-    body.light-mode .proj-nav-home {
-      border-bottom-color: rgba(0, 0, 0, .2)
-    }
-
-    body.light-mode .proj-nav-home:hover {
-      color: #1a1814;
-      border-color: #1a1814
-    }
-
-    body.light-mode .proj-link {
-      color: #2e2b26;
-      border-bottom-color: rgba(0, 0, 0, .2)
-    }
-
-    body.light-mode .proj-link:hover {
-      color: #1a1814;
-      border-color: #1a1814
-    }
-
-    body.light-mode footer {
-      border-top-color: rgba(0, 0, 0, .1)
-    }
-
-    body.light-mode .section-divider {
-      background: linear-gradient(90deg, transparent, rgba(0, 0, 0, .15), transparent)
-    }
-
-    body.light-mode .hero-bio p {
-      color: #1a1814
+      --nav-bg: rgba(18, 18, 18, .85)
     }
 
     *,
@@ -172,10 +41,6 @@
       scroll-behavior: smooth;
       background: #000;
       color: #fff
-    }
-
-    html.pre-dark {
-      background: #0d0d0d
     }
 
     body {
@@ -242,7 +107,7 @@
       align-items: center;
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      background: rgba(0, 0, 0, .85);
+      background: var(--nav-bg);
       border-bottom: 1px solid rgba(255, 255, 255, .08);
       opacity: 0;
       transform: translateY(-10px);
@@ -262,11 +127,10 @@
 
     .nav-logo {
       font-family: 'Inter', sans-serif;
-      font-size: 12px;
-      font-weight: 400;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-      color: var(--g3);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: .01em;
+      color: var(--g1);
       background: none;
       border: none;
       cursor: pointer;
@@ -368,7 +232,7 @@
     }
 
     main {
-      max-width: 680px;
+      max-width: 860px;
       margin: 0 auto;
       padding: 0 28px;
       opacity: 0;
@@ -403,18 +267,53 @@
       text-transform: uppercase;
       margin-bottom: 16px;
       opacity: 0;
-      animation: fadeUp .5s ease 2s forwards
+      animation: fadeUp .5s ease 2s forwards;
+      position: relative;
+      overflow: hidden
     }
 
     #dot-name {
-      margin-bottom: 14px;
-      display: block;
+      margin-bottom: 0;
+      display: inline-block;
       line-height: 1.1;
       font-family: 'Inter', sans-serif;
       font-size: 36px;
       font-weight: 400;
       color: var(--g1)
     }
+
+    .hero-name-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 6px
+    }
+
+    .pronounce-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      color: var(--g3);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: color .2s, transform .2s;
+      flex-shrink: 0;
+      opacity: 0;
+      animation: fadeUp .5s ease 3.2s forwards;
+      align-self: center;
+      margin-top: 2px
+    }
+    .pronounce-btn:hover { color: #fff; transform: scale(1.15) }
+    .pronounce-btn svg { width: 16px; height: 16px; display: block }
+    .pronounce-btn.speaking { color: #fff }
+    @keyframes speakerPulse {
+      0%, 100% { transform: scale(1) }
+      50%       { transform: scale(1.2) }
+    }
+    .pronounce-btn.speaking { animation: speakerPulse .6s ease infinite }
 
     .dot-letter {
       opacity: 0;
@@ -435,15 +334,21 @@
       animation: fadeUp .6s ease 2.5s forwards
     }
 
-    .hero-bio p {
-      font-size: 16px;
-      line-height: 1.7;
-      color: #a3a3a3
+    .hero-switch {
+      position: relative;
+      min-height: 1.7em;
+      overflow: hidden
     }
 
-
-    .hero-bio p+p {
-      margin-top: 2px
+    .hero-switch-text {
+      display: block;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #a3a3a3;
+      position: absolute;
+      top: 0; left: 0;
+      white-space: nowrap;
+      will-change: transform, opacity
     }
 
     .hero-socials {
@@ -501,13 +406,9 @@
     }
 
     .section-card {
-      background: var(--cb);
-      border: 1px solid var(--cc);
-      border-radius: 10px;
-      padding: 20px 20px 4px;
       opacity: 0;
       transform: translateY(16px);
-      transition: opacity .6s ease, transform .6s ease, background .4s, border-color .4s
+      transition: opacity .6s ease, transform .6s ease
     }
 
     .section-card.visible {
@@ -516,17 +417,19 @@
     }
 
     .section-card.skills-card {
-      padding-bottom: 20px
+      padding-bottom: 0
     }
 
-    .section-card .edu-item:last-child {
+    .section-card .edu-item:last-child,
+    #education .edu-item:last-child,
+    #experience .exp-item:last-child {
       border-bottom: none
     }
 
     .section-label {
-      font-family: 'Inter', sans-serif;
-      font-size: 10px;
-      letter-spacing: .5em;
+      font-family: 'Space Mono', monospace;
+      font-size: 12px;
+      letter-spacing: .4em;
       color: var(--g3);
       text-transform: uppercase;
       margin-bottom: 12px;
@@ -536,18 +439,32 @@
     }
 
     .section-label::before {
-      content: '';
-      width: 16px;
-      height: 1px;
-      background: var(--g3)
+      display: none
     }
 
+    #experience .section-label { margin-bottom: 0 }
+
     .exp-item {
-      padding: 14px 0;
+      padding: 6px 0 14px 0;
       border-bottom: 1px solid rgba(255, 255, 255, .07);
       opacity: 0;
       transform: translateY(12px);
       transition: opacity .5s ease, transform .5s ease
+    }
+
+    .exp-inst-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px
+    }
+
+    .exp-inst-name {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--g1);
+      letter-spacing: 0
     }
 
     .exp-item.in-view {
@@ -559,47 +476,27 @@
       border-top: 1px solid rgba(255, 255, 255, .07)
     }
 
-    .exp-top-row {
+    .exp-title-row {
       display: flex;
-      justify-content: space-between;
       align-items: flex-start;
-      gap: 16px
+      justify-content: space-between;
+      gap: 12px
     }
 
-    .exp-left {
+    .exp-title-left {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
       flex: 1;
       min-width: 0
-    }
-
-    .exp-role-line {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 2px
     }
 
     .exp-role {
       font-family: 'Inter', sans-serif;
       font-size: 14px;
-      font-weight: 400;
+      font-weight: 500;
       letter-spacing: 0.01em;
       color: var(--g1)
-    }
-
-    .exp-chevron {
-      display: inline-flex;
-      align-items: center;
-      cursor: pointer;
-      flex-shrink: 0
-    }
-
-    .exp-chevron svg {
-      transition: transform .3s ease;
-      color: var(--g3)
-    }
-
-    .exp-chevron.open svg {
-      transform: rotate(180deg)
     }
 
     .exp-org {
@@ -610,56 +507,25 @@
       line-height: 1.4
     }
 
-    .exp-date-col {
+    .exp-meta-row {
       display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 3px
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 3px
+    }
+
+    .exp-meta-sep {
+      color: var(--g3);
+      opacity: .35;
+      font-size: 12px
     }
 
     .exp-date {
       font-family: 'Space Mono', monospace;
-      font-size: 10px;
+      font-size: 12px;
       color: var(--g3);
       white-space: nowrap
-    }
-
-    .exp-location {
-      font-family: 'Space Mono', monospace;
-      font-size: 10px;
-      color: var(--g3);
-      white-space: nowrap;
-      letter-spacing: .05em
-    }
-
-    .exp-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 8px;
-      gap: 12px
-    }
-
-    .exp-topic {
-      font-family: 'Inter', sans-serif;
-      font-size: 13px;
-      letter-spacing: 0;
-      color: var(--g3);
-      line-height: 1.4
-    }
-
-    .exp-details {
-      overflow: hidden;
-      max-height: 0;
-      opacity: 0;
-      transition: max-height .4s ease, opacity .4s ease, margin-top .3s ease;
-      margin-top: 0
-    }
-
-    .exp-details.open {
-      max-height: 300px;
-      opacity: 1;
-      margin-top: 10px
     }
 
     .exp-guide-line {
@@ -680,8 +546,8 @@
       padding: 14px 0;
       border-bottom: 1px solid rgba(255, 255, 255, .07);
       display: flex;
-      justify-content: space-between;
       align-items: flex-start;
+      gap: 14px;
       opacity: 0;
       transform: translateY(12px);
       transition: opacity .5s ease, transform .5s ease
@@ -696,13 +562,45 @@
       border-top: 1px solid rgba(255, 255, 255, .07)
     }
 
+    .edu-icon {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      background: var(--cb);
+      border: 1px solid var(--cc);
+      border-radius: 7px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--g3);
+      margin-top: 1px
+    }
+
+    .edu-content {
+      flex: 1;
+      min-width: 0
+    }
+
     .edu-name {
       font-family: 'Inter', sans-serif;
       font-size: 14px;
-      font-weight: 400;
+      font-weight: 500;
       letter-spacing: 0.01em;
       color: var(--g1);
-      margin-bottom: 2px
+      margin-bottom: 4px
+    }
+
+    .edu-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap
+    }
+
+    .edu-meta-sep {
+      color: var(--g3);
+      opacity: .35;
+      font-size: 12px
     }
 
     .edu-degree {
@@ -715,7 +613,7 @@
 
     .edu-date {
       font-family: 'Space Mono', monospace;
-      font-size: 10px;
+      font-size: 12px;
       color: var(--g3);
       white-space: nowrap
     }
@@ -723,26 +621,28 @@
     .skills-grid {
       display: flex;
       flex-wrap: wrap;
-      gap: 5px;
+      gap: 8px;
       justify-content: flex-start
     }
 
     .skill-tag {
-      font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      letter-spacing: .08em;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0;
       color: var(--g2);
-      padding: 5px 10px;
-      border: 1px solid rgba(255, 255, 255, .1);
-      background: rgba(255, 255, 255, .03);
-      text-transform: uppercase;
+      padding: 5px 11px;
+      border: 1px solid rgba(255, 255, 255, .08);
+      background: rgba(255, 255, 255, .06);
+      border-radius: 999px;
+      text-transform: none;
       opacity: 0;
       transform: translateY(10px);
       cursor: default;
       overflow: hidden;
       text-align: left;
       white-space: nowrap;
-      transition: border-color .2s, background .2s
+      transition: none
     }
 
     .skill-tag.in-view {
@@ -754,38 +654,55 @@
         opacity: 0;
         transform: translateY(10px)
       }
-
       100% {
         opacity: 1;
         transform: translateY(0)
       }
     }
 
-    .skill-tag:hover {
-      border-color: rgba(255, 255, 255, .28);
-      background: rgba(255, 255, 255, .06)
-    }
-
     .skill-tag .sk-ch {
       display: inline-block;
-      transition: transform .2s ease, color .2s ease;
       color: var(--g2)
     }
 
-    .skill-tag:hover .sk-ch {
-      color: #fff
+    /* Hero status card */
+    .hero-status {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 7px
     }
-
-    .skill-tag:hover .sk-ch:nth-child(odd) {
-      transform: translateY(-3px) rotate(-4deg)
+    .hero-status-row {
+      display: flex;
+      align-items: center;
+      gap: 8px
     }
-
-    .skill-tag:hover .sk-ch:nth-child(even) {
-      transform: translateY(3px) rotate(3deg)
+    .hero-status-icon {
+      width: 24px;
+      height: 24px;
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 6px;
+      background: rgba(255,255,255,.04);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--g3);
+      flex-shrink: 0
     }
-
-    .skill-tag:hover .sk-ch:nth-child(3n) {
-      transform: translateY(-2px) rotate(5deg)
+    .hero-status-text {
+      font-family: 'Space Mono', monospace;
+      font-size: 12px;
+      letter-spacing: .04em;
+      color: var(--g2)
+    }
+    .hero-status-at {
+      color: var(--g3)
+    }
+    .hero-status-sep {
+      width: 1px;
+      height: 12px;
+      background: rgba(255,255,255,.12);
+      margin: 0 2px
     }
 
     footer {
@@ -835,11 +752,332 @@
       color: #fff
     }
 
-    #projects-overlay {
+    /* Nav social icons */
+    .nav-social-icon {
+      color: var(--g3);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      transition: color .2s, transform .2s
+    }
+    .nav-social-icon:hover {
+      color: #fff;
+      transform: translateY(-2px)
+    }
+
+    /* Nav inline links (desktop) */
+    .nav-inline-links {
+      display: flex;
+      list-style: none;
+      gap: 28px;
+      align-items: center;
+      margin-left: auto
+    }
+    .nav-inline-link {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--g3);
+      text-decoration: none;
+      transition: color .2s;
+      position: relative
+    }
+    .nav-inline-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: #fff;
+      transition: width .25s
+    }
+    .nav-inline-link:hover { color: #fff }
+    .nav-inline-link:hover::after { width: 100% }
+
+    /* Visit & like widget */
+    .nav-stats {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-right: 20px
+    }
+    .nav-stat {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--g3)
+    }
+    .nav-stat svg { width: 12px; height: 12px; flex-shrink: 0 }
+    .nav-stat-num {
+      min-width: 24px;
+      transition: color .3s
+    }
+    .nav-like-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--g3);
+      padding: 0;
+      transition: color .2s
+    }
+    .nav-like-btn:hover { color: #e05a5a }
+    .nav-like-btn.liked { color: #e05a5a }
+    .nav-like-btn svg { width: 12px; height: 12px; flex-shrink: 0; transition: transform .25s }
+    .nav-like-btn:hover svg { transform: scale(1.25) }
+    .nav-like-btn.liked svg { transform: scale(1.15) }
+    @keyframes likePop {
+      0%   { transform: scale(1) }
+      40%  { transform: scale(1.5) }
+      70%  { transform: scale(.9) }
+      100% { transform: scale(1.15) }
+    }
+    .nav-like-btn.pop svg { animation: likePop .35s ease forwards }
+    .nav-stat-sep {
+      width: 1px;
+      height: 12px;
+      background: rgba(255,255,255,.1)
+    }
+    @media(max-width:600px) { .nav-stats { display: none } }
+
+    /* Nav right controls */
+    .nav-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-left: 24px
+    }
+
+    /* Hamburger button — hidden on desktop */
+    .hamburger-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      padding: 4px;
+      width: 28px;
+      height: 28px
+    }
+    .hamburger-bar {
+      display: block;
+      width: 20px;
+      height: 1.5px;
+      background: var(--g3);
+      border-radius: 2px;
+      transition: background .2s, transform .3s ease, opacity .3s ease
+    }
+    .hamburger-btn:hover .hamburger-bar { background: #fff }
+    .hamburger-btn.open .hamburger-bar:nth-child(1) { transform: translateY(6.5px) rotate(45deg) }
+    .hamburger-btn.open .hamburger-bar:nth-child(2) { opacity: 0 }
+    .hamburger-btn.open .hamburger-bar:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg) }
+
+    /* Nav dropdown menu — hidden on desktop */
+    .nav-menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 28px;
+      background: rgba(10,10,10,.96);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 10px;
+      padding: 6px 0;
+      min-width: 180px;
+      display: none;
+      flex-direction: column;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-6px);
+      transition: opacity .2s ease, transform .2s ease, visibility .2s ease;
+      z-index: 600
+    }
+    .nav-menu.open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0)
+    }
+    .nav-menu-link {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--g2);
+      text-decoration: none;
+      padding: 11px 18px;
+      transition: color .15s, background .15s
+    }
+    .nav-menu-link:hover {
+      color: #fff;
+      background: rgba(255,255,255,.05)
+    }
+
+    /* Footer socials */
+    .footer-socials {
+      display: flex;
+      gap: 14px;
+      align-items: center
+    }
+    .footer-social-icon {
+      color: var(--g3);
+      display: inline-flex;
+      align-items: center;
+      transition: color .2s, transform .2s
+    }
+    .footer-social-icon:hover {
+      color: #fff;
+      transform: translateY(-2px)
+    }
+
+    /* Project title row with collapse */
+    .proj-title-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px
+    }
+    .proj-title-left {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      flex: 1;
+      min-width: 0
+    }
+    .proj-expand-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 2px;
+      color: var(--g3);
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+      transition: color .2s
+    }
+    .proj-expand-btn:hover { color: #fff }
+    .proj-chevron-icon {
+      width: 14px;
+      height: 14px;
+      display: block;
+      transition: transform .3s ease
+    }
+    .proj-expand-btn[aria-expanded="true"] .proj-chevron-icon {
+      transform: rotate(180deg)
+    }
+    .proj-link-right {
+      flex-shrink: 0;
+      margin-top: 2px
+    }
+    .proj-desc-collapse {
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height .35s ease, opacity .3s ease, margin-top .3s ease;
+      margin-top: 0
+    }
+    .proj-desc-collapse.open {
+      max-height: 300px;
+      opacity: 1;
+      margin-top: 10px
+    }
+
+    /* Things I've Built grid */
+    #built { padding: 0 0 16px 0 }
+    .built-section-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 12px;
+      letter-spacing: .4em;
+      color: var(--g3);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px
+    }
+    .built-section-label::before {
+      display: none
+    }
+    .built-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px
+    }
+    .built-item {
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity .5s ease, transform .5s ease
+    }
+    .built-item.in-view {
+      opacity: 1;
+      transform: translateY(0)
+    }
+    .built-thumb {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: var(--cb);
+      border: 1px solid var(--cc);
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+      transition: border-color .2s
+    }
+    .built-item:hover .built-thumb {
+      border-color: rgba(255,255,255,.28)
+    }
+    .built-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      display: block
+    }
+    .built-thumb-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--cb)
+    }
+    .built-name {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .18em;
+      color: var(--g2);
+      text-transform: uppercase;
+      margin-top: 16px;
+      line-height: 1.4;
+      transition: color .2s;
+      display: inline-block
+    }
+    .built-item:hover .built-name {
+      color: #fff;
+      text-decoration: underline;
+      text-underline-offset: 3px
+    }
+
+    /* Work detail overlay */
+    #work-overlay {
       position: fixed;
       inset: 0;
       z-index: 400;
-      background: transparent;
+      background: var(--bg);
       display: flex;
       flex-direction: column;
       opacity: 0;
@@ -847,13 +1085,11 @@
       transition: opacity .4s ease, visibility .4s ease;
       overflow-y: auto
     }
-
-    #projects-overlay.open {
+    #work-overlay.open {
       opacity: 1;
       visibility: visible
     }
-
-    .proj-header {
+    .work-header {
       position: sticky;
       top: 0;
       z-index: 10;
@@ -861,50 +1097,40 @@
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      background: rgba(0, 0, 0, .85);
+      background: rgba(0,0,0,.85);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255, 255, 255, .08)
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,.08)
     }
-
-    .proj-breadcrumb {
+    .work-nav-row {
       display: flex;
       align-items: center;
       gap: 8px;
       font-family: 'Space Mono', monospace;
-      font-size: 12px;
+      font-size: 11px;
       letter-spacing: .2em;
       text-transform: uppercase
     }
-
-    .proj-breadcrumb-home {
-      color: var(--g3);
+    .work-nav-home {
       background: none;
       border: none;
       cursor: pointer;
+      color: var(--g3);
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
       padding: 0;
       transition: color .2s;
-      font-family: 'Space Mono', monospace;
-      font-size: 12px;
-      letter-spacing: .2em;
-      text-transform: uppercase
+      border-bottom: 1px solid rgba(255,255,255,.18);
+      padding-bottom: 1px
     }
-
-    .proj-breadcrumb-home:hover {
-      color: #fff
-    }
-
-    .proj-breadcrumb-sep {
-      color: var(--g3);
-      opacity: .4
-    }
-
-    .proj-breadcrumb-cur {
-      color: var(--g3)
-    }
-
-    .proj-close {
+    .work-nav-home:hover { color: #fff; border-color: #fff }
+    .work-nav-sep { color: var(--g3); opacity: .4 }
+    .work-nav-cur { color: var(--g3) }
+    .work-close {
       background: none;
-      border: 1px solid rgba(255, 255, 255, .14);
+      border: 1px solid rgba(255,255,255,.14);
       color: var(--g3);
       font-family: 'Space Mono', monospace;
       font-size: 11px;
@@ -914,224 +1140,420 @@
       cursor: pointer;
       transition: color .2s, border-color .2s
     }
-
-    .proj-close:hover {
-      color: #fff;
-      border-color: rgba(255, 255, 255, .4)
-    }
-
-    .proj-body {
-      max-width: 680px;
+    .work-close:hover { color: #fff; border-color: rgba(255,255,255,.4) }
+    .work-body {
+      max-width: 900px;
       margin: 0 auto;
-      padding: 32px 28px 60px;
+      padding: 40px 28px 80px;
       width: 100%
     }
-
-    .proj-nav-row {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      letter-spacing: .25em;
-      text-transform: uppercase;
-      margin-bottom: 28px
+    .work-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 28px;
+      font-weight: 500;
+      color: var(--g1);
+      margin-bottom: 28px;
+      line-height: 1.2
     }
-
-    .proj-nav-home {
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0;
-      font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      letter-spacing: .25em;
-      text-transform: uppercase;
-      color: var(--g3);
-      transition: color .2s;
-      border-bottom: 1px solid rgba(255, 255, 255, .18);
-      padding-bottom: 1px
+    .work-hero-row {
+      margin-bottom: 32px
     }
-
-    .proj-nav-home:hover {
-      color: #fff;
-      border-color: #fff
-    }
-
-    .proj-nav-sep {
-      color: var(--g3);
-      opacity: .4
-    }
-
-    .proj-nav-cur {
-      color: var(--g3)
-    }
-
-    .proj-item {
-      padding: 0;
-      border: none;
-      opacity: 0;
-      transform: translateY(16px);
-      transition: opacity .4s ease, transform .4s ease;
-      margin-bottom: 10px
-    }
-
-    .proj-item.in {
-      opacity: 1;
-      transform: translateY(0)
-    }
-
-    .proj-card {
+    .work-hero-img {
+      width: 100%;
+      aspect-ratio: 16/9;
       background: var(--cb);
       border: 1px solid var(--cc);
       border-radius: 10px;
-      padding: 18px 20px
+      overflow: hidden;
+      margin-bottom: 18px
     }
-
-    .proj-name {
+    .work-hero-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      display: block
+    }
+    .work-hero-bottom {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 32px;
+      align-items: start
+    }
+    .work-hero-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex-shrink: 0
+    }
+    .work-live-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--g2);
+      text-decoration: none;
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(255,255,255,.2);
+      padding-bottom: 2px;
+      transition: color .2s, border-color .2s;
+      white-space: nowrap
+    }
+    .work-live-link:hover { color: #fff; border-color: #fff }
+    .work-live-link svg { width: 12px; height: 12px; flex-shrink: 0 }
+    .work-gh-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--g3);
+      text-decoration: none;
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      transition: color .2s;
+      white-space: nowrap
+    }
+    .work-gh-link:hover { color: #fff }
+    .work-gh-link svg { width: 14px; height: 14px; flex-shrink: 0 }
+    .work-hero-desc {
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--g3)
+    }
+    .work-hero-desc ul {
+      color: var(--g3);
+      font-size: 14px;
+      line-height: 1.75
+    }
+    .work-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-bottom: 40px
+    }
+    .work-gallery-img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: var(--cb);
+      border: 1px solid var(--cc);
+      border-radius: 6px;
+      overflow: hidden
+    }
+    .work-gallery-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      display: block
+    }
+    .work-text-section {
+      margin-bottom: 32px
+    }
+    .work-text-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .4em;
+      color: var(--g3);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px
+    }
+    .work-text-label::before {
+      content: '';
+      width: 14px;
+      height: 1px;
+      background: var(--g3)
+    }
+    .work-text-body {
       font-family: 'Inter', sans-serif;
       font-size: 14px;
       font-weight: 400;
-      letter-spacing: 0.01em;
+      line-height: 1.75;
+      color: var(--g3)
+    }
+    .work-text-body p {
+      font-weight: 400
+    }
+    .work-text-body ul,
+    .work-text-body ol {
+      margin: 6px 0 10px 18px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.75;
+      color: var(--g3)
+    }
+    .work-text-body li {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.75;
+      color: var(--g3)
+    }
+    .work-placeholder-img {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--cb);
+      color: var(--g3);
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .1em;
+      text-transform: uppercase
+    }
+
+    /* Projects (remaining) section on main */
+    #projects-section { padding: 0 0 16px 0 }
+    #projects-section > .section-label {
+      margin-bottom: 12px;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity .5s ease, transform .5s ease
+    }
+    #projects-section.in-view > .section-label {
+      opacity: 1;
+      transform: translateY(0)
+    }
+    .proj-remaining-item {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity .5s ease, transform .5s ease;
+      margin-bottom: 10px
+    }
+    .proj-remaining-item.in-view {
+      opacity: 1;
+      transform: translateY(0)
+    }
+    .proj-hidden {
+      display: none
+    }
+    .proj-card {
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+      transition: none
+    }
+    .proj-remaining-item:first-of-type .proj-card {
+      border-top: 1px solid rgba(255,255,255,.07)
+    }
+    .proj-name {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0;
       color: var(--g1);
       margin-bottom: 4px
     }
-
     .proj-stack {
       font-family: 'Space Mono', monospace;
       font-size: 11px;
       letter-spacing: .12em;
-      color: #666;
+      color: var(--g3);
       text-transform: uppercase;
       margin-bottom: 10px
     }
-
     .proj-desc {
       font-size: 14px;
-      line-height: 1.7;
+      line-height: 1.75;
       color: var(--g3)
     }
-
     .proj-links {
       display: flex;
-      gap: 12px;
+      gap: 10px;
       flex-wrap: wrap;
-      margin-top: 10px;
-      align-items: center;
+      margin-top: 12px;
+      align-items: center
     }
-
     .proj-link {
       color: var(--g3);
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 28px;
-      height: 28px;
-      border: 1px solid rgba(255, 255, 255, .12);
+      width: 30px;
+      height: 30px;
+      border: 1px solid rgba(255,255,255,.12);
       border-radius: 8px;
       transition: color .2s, border-color .2s, background .2s
     }
-
     .proj-link:hover {
       color: #fff;
-      border-color: rgba(255, 255, 255, .35);
-      background: rgba(255, 255, 255, .06)
+      border-color: rgba(255,255,255,.35);
+      background: rgba(255,255,255,.06)
     }
-
     .proj-link svg {
-      width: 14px;
-      height: 14px;
+      width: 15px;
+      height: 15px;
       display: block
     }
+    /* View more / Show less rows */
+    .view-more-row {
+      display: flex;
+      justify-content: center;
+      padding: 14px 0 4px
+    }
+    .view-more-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--cb);
+      border: 1px solid var(--cc);
+      border-radius: 999px;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0;
+      color: var(--g2);
+      padding: 7px 16px;
+      transition: color .2s, border-color .2s, background .2s
+    }
+    .view-more-btn svg {
+      width: 9px;
+      height: 9px;
+      display: block;
+      flex-shrink: 0;
+      transition: transform .3s ease
+    }
+    .view-more-btn.expanded svg {
+      transform: rotate(180deg)
+    }
+    .view-more-btn:hover {
+      color: #fff;
+      border-color: rgba(255,255,255,.3);
+      background: rgba(255,255,255,.09)
+    }
+    .built-hidden { display: none }
+    .proj-hidden  { display: none }
 
-    body.light-mode .proj-link {
-      border-color: rgba(0, 0, 0, .15)
+    /* Lightbox */
+    #lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 800;
+      background: rgba(0, 0, 0, .92);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .25s ease, visibility .25s ease
+    }
+    #lightbox.open {
+      opacity: 1;
+      visibility: visible
+    }
+    .lb-img-wrap {
+      position: relative;
+      max-width: 90vw;
+      max-height: 88vh;
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+    .lb-img-wrap img {
+      max-width: 90vw;
+      max-height: 82vh;
+      object-fit: contain;
+      display: block;
+      border-radius: 6px;
+      user-select: none
+    }
+    .lb-counter {
+      position: absolute;
+      bottom: -28px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: .12em;
+      color: var(--g3)
+    }
+    .lb-arrow {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.14);
+      color: var(--g3);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .2s, color .2s, border-color .2s;
+      z-index: 801
+    }
+    .lb-arrow:hover {
+      background: rgba(255,255,255,.14);
+      color: #fff;
+      border-color: rgba(255,255,255,.35)
+    }
+    .lb-arrow svg { width: 16px; height: 16px; display: block }
+    #lb-prev { left: 20px }
+    #lb-next { right: 20px }
+    .lb-close {
+      position: fixed;
+      top: 16px;
+      right: 20px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.14);
+      color: var(--g3);
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      transition: background .2s, color .2s, border-color .2s;
+      z-index: 801
+    }
+    .lb-close:hover {
+      background: rgba(255,255,255,.14);
+      color: #fff;
+      border-color: rgba(255,255,255,.35)
+    }
+    @media(max-width:600px) {
+      #lb-prev { left: 8px }
+      #lb-next { right: 8px }
+      .lb-arrow { width: 34px; height: 34px }
     }
 
-    body.light-mode .proj-link:hover {
-      color: #1a1814;
-      border-color: rgba(0, 0, 0, .4);
-      background: rgba(0, 0, 0, .06)
+    /* Work detail link row (icon below description) */
+    .work-link-row {
+      margin-top: 12px
     }
 
     @keyframes fadeUp {
-      to {
-        opacity: 1;
-        transform: translateY(0)
-      }
+      to { opacity: 1; transform: translateY(0) }
     }
 
     @media(max-width:600px) {
-      nav {
-        padding: 12px 20px
-      }
-
-      .nav-links {
-        gap: 14px
-      }
-
-      .nav-links a,
-      .nav-btn {
-        font-size: 11px;
-        letter-spacing: .1em
-      }
-
-      main {
-        padding: 0 20px
-      }
-
-      #hero {
-        padding-top: 84px;
-        padding-bottom: 16px
-      }
-
-      .hero-label {
-        font-size: 10px;
-        letter-spacing: .3em
-      }
-
-      .hero-bio p {
-        font-size: 15px
-      }
-
-
-      .exp-meta {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 4px
-      }
-
-      .exp-top-row {
-        gap: 4px;
-      }
-
-      .exp-date-col {
-        align-items: flex-end;
-      }
-
-
-      footer {
-        flex-direction: row;
-        flex-wrap: nowrap;
-        gap: 8px
-      }
-
-      .proj-body {
-        padding: 24px 20px 48px
-      }
-
-      .proj-header {
-        padding: 12px 20px
-      }
-
-      .section-card {
-        padding: 16px 16px 4px
-      }
-
-      .section-card.skills-card {
-        padding-bottom: 16px
-      }
+      nav { padding: 12px 20px }
+      .nav-links { gap: 12px }
+      .nav-links a, .nav-btn { font-size: 11px; letter-spacing: .1em }
+      main { padding: 0 20px }
+      #hero { padding-top: 84px; padding-bottom: 16px }
+      .hero-label { font-size: 10px; letter-spacing: .3em }
+      .hero-bio p { font-size: 15px }
+      .exp-meta-row { flex-wrap: wrap; gap: 4px }
+      footer { flex-direction: row; flex-wrap: nowrap; gap: 8px }
+      .built-grid { grid-template-columns: 1fr }
+      .work-hero-bottom { grid-template-columns: 1fr; gap: 18px }
+      .work-hero-links { flex-direction: row; flex-wrap: wrap; gap: 14px }
+      .work-gallery { grid-template-columns: 1fr }
+      .work-body { padding: 28px 20px 60px }
+      .work-header { padding: 12px 20px }
     }
   </style>
 </head>
@@ -1144,86 +1566,95 @@
     <div class="loader-text">Sathvik</div>
   </div>
 
-  <div id="projects-overlay">
-    <div class="proj-header">
-
-      <button class="proj-close" onclick="closeProjects()">&#10005; Close</button>
+  <!-- Work Detail Overlay -->
+  <div id="work-overlay">
+    <div class="work-header">
+      <button class="work-close" onclick="closeWork()">&#10005; Close</button>
     </div>
-    <div class="proj-body">
-      <div class="proj-nav-row">
-        <button class="proj-nav-home" onclick="goHome()">Home</button>
-        <span class="proj-nav-sep">/</span>
-        <span class="proj-nav-cur">Projects</span>
-      </div>
-      <div class="proj-item">
-        <div class="proj-card">
-          <div class="proj-name">Deep Space Navigation using X-Ray Pulsars</div>
-          <div class="proj-stack">Python &middot; HEASoft &middot; Bash</div>
-          <div class="proj-desc">Analysed millisecond X-ray pulsars using NASA's NICER mission data using the HEASoft
-            software package, focusing on their role in deep space navigation. Involved in data acquisition,
-            post-processing, bash scripting, timing and spectral analysis.</div>
-          <div class="proj-links"><a class="proj-link" href="https://github.com/sathvikacharyaa/NICER-XNAV" target="_blank" title="View on GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a></div>
-        </div>
-      </div>
-      <div class="proj-item">
-        <div class="proj-card">
-          <div class="proj-name">Image Stacking in Astrophotography</div>
-          <div class="proj-stack">Image Processing &middot; Astrophotography</div>
-          <div class="proj-desc">Processed and stacked astronomical images to improve signal-to-noise ratio and enhance
-            the visibility of faint celestial objects. Tools: Siril, DeepSkyStacker, Sequator, PIPP, Registax,
-            AutoStakkert with Python image processing.</div>
-        </div>
-      </div>
-      <div class="proj-item">
-        <div class="proj-card">
-          <div class="proj-name">Astrophotography Image Stacking in Siril &ndash; Siril Documentation Website</div>
-          <div class="proj-stack">Web Development &middot; Astrophotography &middot; Documentation</div>
-          <div class="proj-desc">Step-by-step guide on astrophotography image stacking in Siril,
-            presented as a website.</div>
-          <div class="proj-links">
-            <a class="proj-link" href="https://sathvikacharyaa.github.io/sirilastro" target="_blank" title="View Website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></a>
-            <a class="proj-link" href="https://github.com/sathvikacharyaa/sirilastro" target="_blank" title="View on GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
-          </div>
-        </div>
-      </div>
-      <div class="proj-item">
-        <div class="proj-card">
-          <div class="proj-name">BusTrackerr &ndash; Live Tracker and Arrival Time Predictor</div>
-          <div class="proj-stack">Web Development</div>
-          <div class="proj-desc">A website for daily commuters of a specific Shivamogga&ndash;Manipal&ndash;Mangalore express bus.
-          </div>
-          <div class="proj-links"><a class="proj-link" href="https://bus-trackerr.netlify.app/" target="_blank" title="View Website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></a></div>
-        </div>
-      </div>
+    <div class="work-body" id="work-body-content">
+      <!-- Populated by JS -->
     </div>
   </div>
 
-  <nav id="nav">
-    <button class="nav-logo" onclick="goHome()" style="display:none">Sathvik</button>
-    <div class="nav-location">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;opacity:.7;margin-top:1px"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-      <span>Mangaluru</span>
+  <!-- Lightbox -->
+  <div id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" onclick="lbBgClick(event)">
+    <button class="lb-close" onclick="closeLightbox()" aria-label="Close">&#10005;</button>
+    <button class="lb-arrow" id="lb-prev" onclick="lbNav(-1)" aria-label="Previous image">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <div class="lb-img-wrap">
+      <img id="lb-img" src="" alt="">
+      <div class="lb-counter" id="lb-counter"></div>
     </div>
-    <ul class="nav-links">
-      <li><button class="nav-btn" onclick="openProjects()">Projects</button></li>
-      <li>
-        <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn" title="Toggle theme">
-          <svg id="themeIcon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-          </svg>
-        </button>
-      </li>
+    <button class="lb-arrow" id="lb-next" onclick="lbNav(1)" aria-label="Next image">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
+
+  <nav id="nav">
+    <button class="nav-logo" onclick="goHome()"></button>
+    <!-- Visit & like stats -->
+    <div class="nav-stats">
+      <div class="nav-stat" title="Total visits">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        <span class="nav-stat-num" id="visit-count">—</span>
+      </div>
+      <div class="nav-stat-sep"></div>
+      <button class="nav-like-btn" id="likeBtn" onclick="handleLike()" title="Like this site">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="likeIcon"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <span class="nav-stat-num" id="like-count">—</span>
+      </button>
+    </div>
+    <!-- Desktop inline links -->
+    <ul class="nav-inline-links">
+      <li><a class="nav-inline-link" href="#experience">Experience</a></li>
+      <li><a class="nav-inline-link" href="#built">Things I've Built</a></li>
+      <li><a class="nav-inline-link" href="#projects-section">Projects</a></li>
+      <li><a class="nav-inline-link" href="#education">Education</a></li>
+      <li><a class="nav-inline-link" href="#skills">Skills</a></li>
     </ul>
+    <!-- Right controls -->
+    <div class="nav-controls">
+      <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn" title="Toggle theme">
+        <svg id="themeIcon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+      </button>
+      <!-- Mobile-only hamburger -->
+      <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMenu()" aria-label="Menu" aria-expanded="false">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+    </div>
+    <!-- Mobile dropdown -->
+    <div class="nav-menu" id="navMenu">
+      <a class="nav-menu-link" href="#experience" onclick="closeMenu()">Experience</a>
+      <a class="nav-menu-link" href="#built" onclick="closeMenu()">Things I've Built</a>
+      <a class="nav-menu-link" href="#projects-section" onclick="closeMenu()">Projects</a>
+      <a class="nav-menu-link" href="#education" onclick="closeMenu()">Education</a>
+      <a class="nav-menu-link" href="#skills" onclick="closeMenu()">Skills</a>
+    </div>
   </nav>
 
   <main id="main">
     <section id="hero">
-      <div class="hero-label">MSc Physics &middot; MIT Manipal</div>
-      <div id="dot-name">Sathvik Acharya</div>
+    
+      <div class="hero-name-row">
+        <div id="dot-name">Sathvik Acharya</div>
+        <button class="pronounce-btn" id="pronounceBtn" onclick="pronounceName()" title="Hear pronunciation" aria-label="Pronounce name">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+          </svg>
+        </button>
+      </div>
       <div class="hero-bio">
-        <p>Passionate about Physics,</p>
-        <p>Computer Science and Technology.</p>
+        <div class="hero-switch">
+          <span class="hero-switch-text" id="hero-switch-el">M.Sc Physics student</span>
+        </div>
         <div class="hero-socials">
           <a href="https://x.com/sathvikacharyaa" target="_blank" aria-label="X (Twitter)">
             <svg viewBox="0 0 24 24" fill="currentColor">
@@ -1250,37 +1681,60 @@
             </svg>
           </a>
         </div>
+
+        <!-- Present status card -->
+        <div class="hero-status" style="opacity:0;animation:fadeUp .6s ease 3.1s forwards">
+          <div class="hero-status-row">
+            <div class="hero-status-icon">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+            </div>
+            <span class="hero-status-text">Quantum Computing Intern <span class="hero-status-at">@KwantumG Research Labs</span></span>
+          </div>
+          <div class="hero-status-row">
+            <div class="hero-status-icon">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <span class="hero-status-text">Mangaluru</span>
+            <div class="hero-status-sep"></div>
+            <div class="hero-status-icon">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <span class="hero-status-text" id="hero-ist-clock">--:-- --</span>
+          </div>
+        </div>
+
       </div>
     </section>
 
     <div class="section-divider"></div>
 
     <section id="experience">
-      <div class="section-card">
-        <div class="section-label">Experience</div>
-        <div class="exp-item">
-          <div class="exp-top-row">
-            <div class="exp-left">
-              <div class="exp-role-line" style="display: flex; align-items: center; gap: 10px;">
-                <span class="exp-role">Summer Research Intern</span>
-                <span class="exp-chevron" id="expChevron" onclick="toggleExp()">
-                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="6 9 12 15 18 9" />
-                  </svg>
-                </span>
+      <div class="section-label">Experience</div>
+      <div class="exp-item">
+        <div class="proj-card">
+          <div class="exp-inst-row">
+            <div class="edu-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
+            </div>
+            <div class="exp-inst-name">Indian Institute of Space Science and Technology</div>
+          </div>
+          <div class="exp-title-row">
+            <div class="exp-title-left">
+              <button class="proj-expand-btn" onclick="toggleProjDesc(this)" aria-expanded="false" title="Show details">
+                <svg class="proj-chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 12 3 18 8"/><polyline points="6 16 12 21 18 16"/></svg>
+              </button>
+              <div>
+                <div class="exp-role">Summer Research Intern</div>
+                <div class="exp-meta-row">
+                  <span class="exp-date">May &mdash; Jul 2024</span>
+                  <span class="exp-meta-sep">|</span>
+                  <span class="exp-date">Thiruvananthapuram</span>
+                </div>
               </div>
-              <div class="exp-org">Indian Institute of Space Science and Technology</div>
-            </div>
-            <div class="exp-date-col">
-              <span class="exp-date">May &mdash; Jul 2024</span>
             </div>
           </div>
-          <div class="exp-meta">
-            <span class="exp-topic">Topic: Deep Space Navigation using X-Ray Pulsars</span>
-          </div>
-          <div class="exp-details" id="expDetails">
-            <div class="exp-guide-line">Project Guide: Dr. Priyadarshnam</div>
+          <div class="proj-desc-collapse">
+            <div class="exp-guide-line">Topic: Deep Space Navigation using X-Ray Pulsars &nbsp;&middot;&nbsp; Guide: Dr. Priyadarshnam</div>
             <div class="exp-desc">Analysed millisecond X-ray pulsars using NASA's NICER mission data using the HEASoft
               software package, focusing on their role in deep space navigation. Involved in data acquisition,
               post-processing, bash scripting, timing and spectral analysis.</div>
@@ -1289,34 +1743,132 @@
       </div>
     </section>
 
+    <section id="built">
+      <div class="built-section-label">Things I've Built</div>
+      <div class="built-grid" id="built-grid">
+        <div class="built-item" onclick="openWork('siril')" tabindex="0" role="button" aria-label="View Siril Documentation Website">
+          <div class="built-thumb">
+            <img src="images/poster_siril.png" alt="Astrophotography Image Stacking in Siril" loading="lazy">
+          </div>
+          <div class="built-name">Image Stacking in Siril Website</div>
+        </div>
+        <div class="built-item" onclick="openWork('linkinpark')" tabindex="0" role="button" aria-label="View FROM ZERO Linkin Park Concert Memory">
+          <div class="built-thumb">
+            <img src="images/lp_poster.png" alt="FROM ZERO Linkin Park Concert Memory" loading="lazy">
+          </div>
+          <div class="built-name">FROM ZERO Linkin Park Concert Memory</div>
+        </div>
+        <div class="built-item built-hidden" onclick="openWork('bustracker')" tabindex="0" role="button" aria-label="View BusTrackerr">
+          <div class="built-thumb">
+            <img src="images/bus_tracker_poster.png" alt="BusTrackerr" loading="lazy">
+          </div>
+          <div class="built-name">BusTrackerr &ndash; Live Tracker and Arrival Time Predictor</div>
+        </div>
+        <div class="built-item built-hidden" onclick="openWork('ytminiplayer')" tabindex="0" role="button" aria-label="View YouTube Music Miniplayer for PC">
+          <div class="built-thumb">
+            <img src="images/yt_poster.png" alt="YouTube Music Miniplayer for PC" loading="lazy">
+          </div>
+          <div class="built-name">YouTube Music Miniplayer for PC</div>
+        </div>
+        <div class="built-item built-hidden" onclick="openWork('pgwebsite')" tabindex="0" role="button" aria-label="View Paying Guest Website">
+          <div class="built-thumb">
+            <img src="images/PG_POSTER.png" alt="Paying Guest Website" loading="lazy">
+          </div>
+          <div class="built-name">Paying Guest Website for Women</div>
+        </div>
+      </div>
+      <div class="view-more-row" id="built-view-more">
+        <button class="view-more-btn" id="built-toggle-btn" onclick="toggleBuilt()">
+          Show more
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 12 3 18 8"/><polyline points="6 16 12 21 18 16"/></svg>
+        </button>
+      </div>
+    </section>
+
     <div class="section-divider"></div>
 
-    <section id="education">
-      <div class="section-card">
-        <div class="section-label">Education</div>
-        <div class="edu-item">
-          <div>
-            <div class="edu-name">Manipal Institute of Technology</div>
-            <div class="edu-degree">M.Sc &ndash; Physics</div>
+    <section id="projects-section">
+      <div class="section-label">Projects</div>
+      <div class="proj-remaining-item">
+        <div class="proj-card">
+          <div class="proj-title-row">
+            <div class="proj-title-left">
+              <button class="proj-expand-btn" onclick="toggleProjDesc(this)" aria-expanded="false" title="Show description">
+                <svg class="proj-chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 12 3 18 8"/><polyline points="6 16 12 21 18 16"/></svg>
+              </button>
+              <div>
+                <div class="proj-name">Deep Space Navigation using X-Ray Pulsars</div>
+                <div class="proj-stack">Python &middot; HEASoft &middot; Bash</div>
+              </div>
+            </div>
+            <a class="proj-link proj-link-right" href="https://github.com/sathvikacharyaa/NICER-XNAV" target="_blank" title="View on GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
           </div>
-          <div class="edu-date">2025 &mdash; Present</div>
+          <div class="proj-desc-collapse">
+            <div class="proj-desc">Analysed millisecond X-ray pulsars using NASA's NICER mission data using the HEASoft software package, focusing on their role in deep space navigation. Involved in data acquisition, post-processing, bash scripting, timing and spectral analysis.</div>
+          </div>
         </div>
-        <div class="edu-item">
-          <div>
-            <div class="edu-name">St Aloysius College (Autonomous)</div>
-            <div class="edu-degree">B.Sc &ndash; Physics, Computer Science</div>
+      </div>
+      <div class="proj-remaining-item" id="proj-more">
+        <div class="proj-card">
+          <div class="proj-title-row">
+            <div class="proj-title-left">
+              <button class="proj-expand-btn" onclick="toggleProjDesc(this)" aria-expanded="false" title="Show description">
+                <svg class="proj-chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 8 12 3 18 8"/><polyline points="6 16 12 21 18 16"/></svg>
+              </button>
+              <div>
+                <div class="proj-name">Image Stacking in Astrophotography</div>
+                <div class="proj-stack">Image Processing &middot; Astrophotography</div>
+              </div>
+            </div>
           </div>
-          <div class="edu-date">2022 &mdash; 2025</div>
+          <div class="proj-desc-collapse">
+            <div class="proj-desc">Processed and stacked astronomical images to improve signal-to-noise ratio and enhance the visibility of faint celestial objects. Tools: Siril, DeepSkyStacker, Sequator, PIPP, Registax, AutoStakkert with Python image processing.</div>
+          </div>
         </div>
       </div>
     </section>
 
     <div class="section-divider"></div>
 
+    <section id="education">
+      <div class="section-label">Education</div>
+      <div class="edu-item">
+          <div class="edu-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
+          </div>
+          <div class="edu-content">
+            <div class="edu-name">Manipal Institute of Technology</div>
+            <div class="edu-meta-row">
+              <span class="edu-date">2025 &mdash; Present</span>
+              <span class="edu-meta-sep">|</span>
+              <span class="edu-degree">M.Sc</span>
+              <span class="edu-meta-sep">|</span>
+              <span class="edu-degree">Physics</span>
+            </div>
+          </div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
+          </div>
+          <div class="edu-content">
+            <div class="edu-name">St Aloysius College (Autonomous)</div>
+            <div class="edu-meta-row">
+              <span class="edu-date">2022 &mdash; 2025</span>
+              <span class="edu-meta-sep">|</span>
+              <span class="edu-degree">B.Sc</span>
+              <span class="edu-meta-sep">|</span>
+              <span class="edu-degree">Physics, Computer Science</span>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
     <section id="skills">
-      <div class="section-card skills-card">
-        <div class="section-label">Skills</div>
-        <div class="skills-grid">
+      <div class="section-label">Skills</div>
+      <div class="skills-grid" style="margin-bottom:28px; margin-top:25px;">
           <div class="skill-tag">Python</div>
           <div class="skill-tag">C</div>
           <div class="skill-tag">Web Development</div>
@@ -1327,21 +1879,35 @@
           <div class="skill-tag">Astronomical Data Analysis</div>
           <div class="skill-tag">Astrophotography Image Processing</div>
         </div>
-        <div class="section-label" style="margin-top:16px;">Software and Tools</div>
-        <div class="skills-grid" style="padding-bottom:4px;">
+        <div class="section-label" style="margin-top:0; margin-bottom:10px;">Software and Tools</div>
+        <div class="skills-grid" style="margin-bottom:20px; margin-top:25px;">
           <div class="skill-tag">HEASoft</div>
+          <div class="skill-tag">Vercel</div>
+          <div class="skill-tag">Git</div>
         </div>
-      </div>
     </section>
 
     <footer id="footer">
-      <div class="footer-copy"><span style="font-size: 16px; line-height: 1;">&copy;</span> Sathvik Acharya</div>
+      <div class="footer-copy"><span style="font-size:16px;line-height:1;">&copy;</span> Sathvik Acharya</div>
+      <div class="footer-socials">
+        <a class="footer-social-icon" href="https://x.com/sathvikacharyaa" target="_blank" aria-label="X (Twitter)">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a class="footer-social-icon" href="https://www.linkedin.com/in/sathvikacharya/" target="_blank" aria-label="LinkedIn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a class="footer-social-icon" href="https://github.com/sathvikacharyaa" target="_blank" aria-label="GitHub">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        </a>
+        <a class="footer-social-icon" href="mailto:sathvikacharyaa@gmail.com" aria-label="Email">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>
+        </a>
+      </div>
     </footer>
   </main>
 
   <script>
     var moonPath = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
-    var altDarkPath = '<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>';
     var sunPath = '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
 
     try {
@@ -1351,24 +1917,17 @@
     function toggleTheme() {
       var body = document.body;
       if (body.classList.contains('dark-mode')) {
-        // dark → amoled, show sun (next: light)
+        // dark → amoled, show sun (next: dark)
         body.classList.remove('dark-mode');
         document.documentElement.style.background = '#000';
         document.getElementById('themeIcon').innerHTML = sunPath;
         try { localStorage.setItem('theme', 'amoled'); } catch (e) { }
-      } else if (body.classList.contains('light-mode')) {
-        // light → dark, show moon (next: amoled)
-        body.classList.remove('light-mode');
+      } else {
+        // amoled → dark, show moon (next: amoled)
         body.classList.add('dark-mode');
         document.documentElement.style.background = '#0d0d0d';
         document.getElementById('themeIcon').innerHTML = moonPath;
         try { localStorage.setItem('theme', 'dark'); } catch (e) { }
-      } else {
-        // amoled → light, show star (next: dark)
-        body.classList.add('light-mode');
-        document.documentElement.style.background = '#e8e5df';
-        document.getElementById('themeIcon').innerHTML = altDarkPath;
-        try { localStorage.setItem('theme', 'light'); } catch (e) { }
       }
     }
 
@@ -1381,38 +1940,391 @@
         var s = String(ist.getSeconds()).padStart(2, '0');
         var el = document.getElementById('nav-clock');
         if (el) el.textContent = h + ':' + m + ':' + s;
+        // Hero IST clock (12h format)
+        var h12 = ist.getHours();
+        var ampm = h12 >= 12 ? 'PM' : 'AM';
+        h12 = h12 % 12 || 12;
+        var heroEl = document.getElementById('hero-ist-clock');
+        if (heroEl) heroEl.textContent = String(h12).padStart(2,'0') + ':' + String(ist.getMinutes()).padStart(2,'0') + ':' + String(ist.getSeconds()).padStart(2,'0') + ' ' + ampm + ' IST';
       }
       updateClock();
       setInterval(updateClock, 1000);
     })();
 
-    function toggleExp() {
-      document.getElementById('expChevron').classList.toggle('open');
-      document.getElementById('expDetails').classList.toggle('open');
+    function toggleExp() { /* unused */ }
+
+    // ── Name pronunciation ────────────────────────────────────────────────
+    function pronounceName() {
+      if (!window.speechSynthesis) return;
+      var btn = document.getElementById('pronounceBtn');
+      if (window.speechSynthesis.speaking) {
+        window.speechSynthesis.cancel();
+        btn.classList.remove('speaking');
+        return;
+      }
+      var u = new SpeechSynthesisUtterance('Suth-vik Uh-chur-yuh');
+      u.rate  = 0.85;
+      u.pitch = 1;
+      u.lang  = 'en-IN';
+      u.onstart = function() { btn.classList.add('speaking'); };
+      u.onend   = function() { btn.classList.remove('speaking'); };
+      u.onerror = function() { btn.classList.remove('speaking'); };
+      window.speechSynthesis.speak(u);
+    }
+    // ─────────────────────────────────────────────────────────────────────
+
+    // ── Hero text switcher ────────────────────────────────────────────────
+    (function() {
+      var phrases = [
+        'M.Sc Physics student',
+        'Passionate about building websites, tools',
+      ];
+      var idx   = 0;
+      var el    = document.getElementById('hero-switch-el');
+      var HOLD  = 3500; // ms each phrase stays visible
+      var SPEED = 550;  // ms transition
+
+      function switchTo(next) {
+        // Wipe current text up and out
+        el.style.transition = 'transform ' + SPEED + 'ms cubic-bezier(0.4,0,0.6,1), opacity ' + SPEED + 'ms ease';
+        el.style.transform  = 'translateY(-110%)';
+        el.style.opacity    = '0';
+
+        setTimeout(function() {
+          // Snap new text in from below (no transition)
+          el.style.transition = 'none';
+          el.style.transform  = 'translateY(110%)';
+          el.style.opacity    = '0';
+          el.textContent = phrases[next];
+
+          // Force reflow then animate in
+          el.getBoundingClientRect();
+          el.style.transition = 'transform ' + SPEED + 'ms cubic-bezier(0.2,0.8,0.2,1), opacity ' + SPEED + 'ms ease';
+          el.style.transform  = 'translateY(0)';
+          el.style.opacity    = '1';
+          idx = next;
+        }, SPEED);
+      }
+
+      // Start switching after initial bio fade-in settles
+      setTimeout(function() {
+        setInterval(function() {
+          switchTo((idx + 1) % phrases.length);
+        }, HOLD);
+      }, 4000);
+    })();
+    // ─────────────────────────────────────────────────────────────────────
+
+    // Work items data
+    var workItems = {
+      siril: {
+        title: 'Astrophotography Image Stacking in Siril – Siril Documentation Website',
+        siteUrl: 'https://sathvikacharyaa.github.io/sirilastro',
+        siteLinkLabel: 'sathvikacharyaa.github.io/sirilastro',
+        githubUrl: 'https://github.com/sathvikacharyaa/sirilastro',
+        briefDesc: 'This website provides a concise guide on astrophotography image stacking using Siril, covering the entire workflow from setup to final processing. Ideal for beginners.',
+        idea: 'During my bachelor’s, I got into astrophotography after a few stargazing sessions and learned to stack images using Siril. When I tried to learn online, I found that many tutorials were either too advanced or missing important steps, so it was hard to get a clear workflow.<br> <br> So I decided to build a beginner‑friendly documentation site that explains Siril image stacking in plain language, with each step laid out in order and illustrated. The goal is to save others the hours I spent piecing together scattered docs and forum posts, and give new astrophotographers one trusted place to learn the full stacking process from start to finish.</br>',
+        whatIBuilt: 'The tutorial covers:<ul style="margin:6px 0 10px 18px;line-height:1.75"><li>Installing Siril</li><li>Prerequisites</li><li>Image Calibration</li><li>Launching Siril</li><li>Installing Scripts</li><li>Stacking Images</li><li>Background Extraction</li><li>Photometric Color Calibration</li><li>Remove Green Noise</li><li>Stretching Image</li><li>Applying Colors</li></ul>Whether you\'re just getting started with astrophotography or looking to improve your image processing skills using Siril, this site is meant to serve as a beginner-friendly guide.',
+        heroImg: 'images/poster_siril.png',
+        galleryImgs: ['images/siril_1.png', 'images/siril_2.png', 'images/siril_3.png']
+      },
+      bustracker: {
+        title: 'BusTrackerr – Live Tracker and Arrival Time Predictor',
+        siteUrl: 'https://bus-trackerr.netlify.app/',
+        siteLinkLabel: 'bus-trackerr.netlify.app',
+        githubUrl: 'https://github.com/sathvikacharyaa/bus-trackerr',
+        briefDesc: 'A practical web app for daily commuters of the Shivamogga–Manipal–Mangalore express bus, offering live location tracking and predicted arrival times.',
+        idea: 'The bus route I used regularly had no digital tracking, leaving commuters guessing wait times. A lightweight, shareable web app felt like the most direct solution.',
+        whatIBuilt: 'It’s a mobile friendly site that displays real time bus positions, and gives an estimated arrival time for every stop along the route. The app uses the timetable plus the delay patterns I’ve collected to improve its arrival predictions over time, instead of relying only on static schedules.<br> <br>Users can see live “might arrive at” timings, a full timetable for different stops, and statistics about how often the bus is delayed versus on time. The app also supports push alerts, Google Calendar reminders for specific stops, and vibration notifications so you know when it’s almost time to leave for the bus.</br>',
+        heroImg: 'images/bus_tracker_poster.png',
+        galleryImgs: ['images/bus1.png', 'images/bus2.png', 'images/bus3.png', 'images/bus4.png']
+      },
+      linkinpark: {
+        title: 'FROM ZERO – Linkin Park Concert Memory',
+        siteUrl: 'https://linkinparkbengaluru.vercel.app/',
+        siteLinkLabel: 'linkinparkbengaluru.vercel.app',
+        githubUrl: 'https://github.com/sathvikacharyaa/lpbengaluru',
+        briefDesc: 'A responsive fan website documenting my experience of the Linkin Park From Zero concert in Bengaluru on 23 January 2026.',
+        idea: 'For the Bengaluru show on 23.01.2026, fans like us were so excited that we created multiple WhatsApp groups just to share stories, photos, and how much this concert meant to us. After waiting years for Linkin Park to finally perform in India, that night felt historic, especially with the From Zero World Tour making a special stop in Bengaluru. <br> <br>I wanted to save that feeling in a more meaningful way than just a photo gallery, so I built a website that documents the atmosphere, setlist, and memories from the show. Since this was part of Linkin Park’s first ever run of concerts in India, the site is meant as a digital keepsake for every LP fan who wants to relive that unforgettable night. </br>',
+        whatIBuilt: 'The website includes:<ul style="margin:6px 0 10px 18px;line-height:1.75"><li>My story of discovering Linkin Park and finally seeing them live at Brigade Innovation Gardens on 23.01.2026, with Bloodywood opening the show.</li><li>The complete setlist for Linkin Park and Bloodywood, along with playlist links on Spotify and YouTube Music so fans can listen through the night in order.</li><li>A gallery of images and videos shared by fans who were at the Bengaluru concert, capturing the crowd, the stage, and the most emotional moments.</li><li>A section called “My Memories” where I’ve written what the show meant to me personally and how it felt to hear these songs live in India.</li><li>“Why Linkin Park” explains why the band is so important to me, who grew up with their music and waited years for this tour.</li><li>“The Keepsakes” showcases special items tied to the show, like posters, wallpapers, and other unique mementos from this first ever Linkin Park concert in India.</li></ul>',
+        heroImg: 'images/lp_poster.png',
+        galleryImgs: ['images/lp_1.png', 'images/lp_2.png', 'images/lp_3.png']
+      },
+      ytminiplayer: {
+        title: 'YouTube Music Miniplayer for PC',
+        siteUrl: '',
+        siteLinkLabel: '',
+        githubUrl: 'https://github.com/sathvikacharyaa/YtMusic-PIP',
+        briefDesc: 'A compact desktop miniplayer for YouTube Music on PC, designed for minimal screen footprint while keeping controls within easy reach.',
+        idea: 'When I moved from Spotify to YouTube Music, I missed having a persistent PiP mini player that stayed on screen with full controls while I worked elsewhere on my computer. The browser’s built‑in media controls are helpful, but they only offer basic actions like play, pause, and skip, and they mainly work inside the browser window.<br><br>To fix that gap, I created a Chrome extension that detects when you’re on the YouTube Music site and, when you click its icon, opens a floating mini player with all the usual controls directly accessible. This custom mini player makes YouTube Music feel closer to other streaming apps by letting you manage playback without constantly switching back to the main tab.</br>',
+        whatIBuilt: 'The mini player shows the currently playing track with album art, song title, artist name, and a live progress bar with timestamps so you can see exactly where you are in the song. You can resize the player to different compact layouts depending on how much space you want it to take on your screen.<br><br>It includes all the key controls: play/pause, next and previous track, shuffle, repeat, and an “add to liked songs” toggle, so you don’t need to go back to the main YouTube Music tab for common actions. There’s also a volume icon that mutes on click, and when you hover over it, a slider appears for fine‑tuning the volume directly from the mini player.</br><br>On top of that, I’ve added a lyrics toggle that opens a lyrics panel above the mini player, letting you follow the words while the song plays without losing access to your controls.</br>',
+        heroImg: 'images/yt_poster.png',
+        galleryImgs: ['images/yt1.png', 'images/yt2.png', 'images/y3.png']
+      },
+      pgwebsite: {
+        title: 'Paying Guest for Women Website',
+        siteUrl: 'https://ushaladiespg.vercel.app/',
+        siteLinkLabel: 'ushaladiespg.vercel.app',
+        githubUrl: 'https://github.com/sathvikacharyaa/pg-website',
+        briefDesc: 'A clean, informative website for a paying guest accommodation, helping potential tenants explore available rooms, amenities, and contact details.',
+        idea: 'PG accommodations still depend a lot on word of mouth, so many good places are hard to discover unless you already know someone there. A simple, well designed website gives them a proper online presence and makes it much easier for women to find, compare, and trust different options. <br> <br>I came up with this idea because a family member owns a PG and they constantly receive calls from women asking basic questions about rooms, facilities, and food. Instead of repeating the same details on every call, this website puts all the information in one place, so people can understand everything upfront and only call when they’re ready to decide or visit.',
+        whatIBuilt: 'I’ve built a website that helps women explore paying guest (PG) options comfortably from home. It lets them browse PGs by amenities, check the meals menu, read reviews, and see detailed contact information. The site also shows the live location of each stay and offers a direct WhatsApp chat option so they can ask questions or book quickly and safely.',
+        heroImg: 'images/PG_POSTER.png',
+        galleryImgs: ['images/pg1.png', 'images/pg2.png', 'images/pg3.png']
+      }
+    };
+
+    var svgLinkIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>';
+
+    function imgOrPlaceholder(src, label) {
+      if (src) {
+        return '<img src="' + src + '" alt="' + (label || '') + '" loading="lazy">';
+      }
+      return '<div class="work-placeholder-img">Image coming soon</div>';
     }
 
-    function openProjects() {
-      document.getElementById('projects-overlay').classList.add('open');
+    function openWork(key) {
+      var d = workItems[key];
+      if (!d) return;
+
+      var galleryHtml = '';
+      if (d.galleryImgs && d.galleryImgs.length) {
+        var imgs = d.galleryImgs;
+        _lbImgs = imgs;
+        galleryHtml = '<div class="work-gallery">';
+        imgs.forEach(function(src, i) {
+          if (src) {
+            galleryHtml += '<div class="work-gallery-img" style="cursor:pointer" onclick="openLightbox(' + i + ')" title="View image">'
+              + '<img src="' + src + '" alt="Image ' + (i+1) + '" loading="lazy">'
+              + '</div>';
+          } else {
+            galleryHtml += '<div class="work-gallery-img"><div class="work-placeholder-img">Image coming soon</div></div>';
+          }
+        });
+        galleryHtml += '</div>';
+      }
+
+      var svgArrowNE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>';
+      var svgGitHub  = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>';
+
+      var liveLink = d.siteUrl
+        ? '<a class="work-live-link" href="' + d.siteUrl + '" target="_blank" rel="noopener">Live View ' + svgArrowNE + '</a>'
+        : '';
+      var ghLink = d.githubUrl
+        ? '<a class="work-gh-link" href="' + d.githubUrl + '" target="_blank" rel="noopener">' + svgGitHub + 'GitHub</a>'
+        : '';
+
+      document.getElementById('work-body-content').innerHTML =
+        '<h1 class="work-title">' + d.title + '</h1>' +
+        '<div class="work-hero-row">' +
+          '<div class="work-hero-img">' + imgOrPlaceholder(d.heroImg, d.title) + '</div>' +
+          '<div class="work-hero-bottom">' +
+            '<div class="work-hero-links">' + liveLink + ghLink + '</div>' +
+            '<div class="work-hero-desc">' + d.briefDesc + '</div>' +
+          '</div>' +
+        '</div>' +
+        galleryHtml +
+        '<div class="work-text-section"><div class="work-text-label">The Idea</div><div class="work-text-body">' + d.idea + '</div></div>' +
+        '<div class="work-text-section"><div class="work-text-label">What I Built</div><div class="work-text-body">' + d.whatIBuilt + '</div></div>';
+
+      document.getElementById('work-overlay').classList.add('open');
       document.getElementById('main').classList.add('blurred');
       document.getElementById('nav').classList.add('blurred');
-      setTimeout(function () {
-        document.querySelectorAll('.proj-item').forEach(function (el, i) {
-          setTimeout(function () { el.classList.add('in'); }, i * 80);
-        });
-      }, 100);
+      document.getElementById('work-overlay').scrollTop = 0;
     }
-    function closeProjects() {
-      document.getElementById('projects-overlay').classList.remove('open');
+
+    function closeWork() {
+      document.getElementById('work-overlay').classList.remove('open');
       document.getElementById('main').classList.remove('blurred');
       document.getElementById('nav').classList.remove('blurred');
-      document.querySelectorAll('.proj-item').forEach(function (el) { el.classList.remove('in'); });
     }
+
     function goHome() {
-      closeProjects();
+      closeWork();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-    document.getElementById('projects-overlay').addEventListener('click', function (e) { if (e.target === this) closeProjects(); });
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeProjects(); });
+
+    // Lightbox
+    var _lbImgs = [];
+    var _lbIdx  = 0;
+
+    function openLightbox(idx) {
+      _lbIdx = idx;
+      lbRender();
+      document.getElementById('lightbox').classList.add('open');
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+
+    function lbNav(dir) {
+      _lbIdx = (_lbIdx + dir + _lbImgs.length) % _lbImgs.length;
+      lbRender();
+    }
+
+    function lbRender() {
+      var img = document.getElementById('lb-img');
+      img.src = _lbImgs[_lbIdx];
+      img.alt = 'Image ' + (_lbIdx + 1);
+      document.getElementById('lb-counter').textContent = (_lbIdx + 1) + ' / ' + _lbImgs.length;
+      document.getElementById('lb-prev').style.display = _lbImgs.length > 1 ? '' : 'none';
+      document.getElementById('lb-next').style.display = _lbImgs.length > 1 ? '' : 'none';
+    }
+
+    function lbBgClick(e) {
+      if (e.target === document.getElementById('lightbox')) closeLightbox();
+    }
+
+    document.addEventListener('keydown', function(e) {
+      var lb = document.getElementById('lightbox');
+      if (lb.classList.contains('open')) {
+        if (e.key === 'ArrowLeft')  { lbNav(-1); return; }
+        if (e.key === 'ArrowRight') { lbNav(1);  return; }
+        if (e.key === 'Escape')     { closeLightbox(); return; }
+      }
+      if (e.key === 'Escape') { closeWork(); closeMenu(); }
+    });
+
+    function toggleMenu() {
+      var btn = document.getElementById('hamburgerBtn');
+      var menu = document.getElementById('navMenu');
+      var open = menu.classList.toggle('open');
+      btn.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', open);
+    }
+
+    // ── Visit & Like counters ──────────────────────────────────────────────
+    // Uses CountAPI (countapi.xyz) — free, persistent, no auth needed.
+    // Namespace: sathvikacharyaa-portfolio  (change to your own unique string)
+    var CA_NS  = 'sathvikacharyaa-portfolio';
+    var CA_VIS = 'visits';
+    var CA_LIK = 'likes';
+
+    function animateCount(el, target) {
+      var start = 0;
+      var dur   = 900;
+      var step  = Math.ceil(target / (dur / 16));
+      var timer = setInterval(function() {
+        start += step;
+        if (start >= target) { start = target; clearInterval(timer); }
+        el.textContent = start.toLocaleString();
+      }, 16);
+    }
+
+    // Hit visit counter on load
+    fetch('https://api.countapi.xyz/hit/' + CA_NS + '/' + CA_VIS)
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        animateCount(document.getElementById('visit-count'), d.value);
+      })
+      .catch(function(){ document.getElementById('visit-count').textContent = '—'; });
+
+    // Load like count (read only, no hit)
+    fetch('https://api.countapi.xyz/get/' + CA_NS + '/' + CA_LIK)
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        var v = d.value || 0;
+        document.getElementById('like-count').textContent = v.toLocaleString();
+        if (localStorage.getItem('sa_liked') === '1') {
+          document.getElementById('likeBtn').classList.add('liked');
+          document.getElementById('likeIcon').setAttribute('fill', '#e05a5a');
+          document.getElementById('likeIcon').setAttribute('stroke', '#e05a5a');
+        }
+      })
+      .catch(function(){ document.getElementById('like-count').textContent = '—'; });
+
+    function handleLike() {
+      var btn  = document.getElementById('likeBtn');
+      var icon = document.getElementById('likeIcon');
+      var el   = document.getElementById('like-count');
+      if (localStorage.getItem('sa_liked') === '1') return; // already liked
+      localStorage.setItem('sa_liked', '1');
+      btn.classList.add('liked', 'pop');
+      icon.setAttribute('fill', '#e05a5a');
+      icon.setAttribute('stroke', '#e05a5a');
+      btn.addEventListener('animationend', function(){ btn.classList.remove('pop'); }, { once: true });
+      fetch('https://api.countapi.xyz/hit/' + CA_NS + '/' + CA_LIK)
+        .then(function(r){ return r.json(); })
+        .then(function(d){ animateCount(el, d.value); })
+        .catch(function(){
+          var cur = parseInt(el.textContent.replace(/,/g,'')) || 0;
+          el.textContent = (cur + 1).toLocaleString();
+        });
+    }
+    // ──────────────────────────────────────────────────────────────────────
+    function closeMenu() {
+      var btn = document.getElementById('hamburgerBtn');
+      var menu = document.getElementById('navMenu');
+      menu.classList.remove('open');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+    document.addEventListener('click', function(e) {
+      var btn = document.getElementById('hamburgerBtn');
+      var menu = document.getElementById('navMenu');
+      if (menu && btn && !menu.contains(e.target) && !btn.contains(e.target)) {
+        closeMenu();
+      }
+    });
+
+    function toggleProjDesc(expandBtn) {
+      var card = expandBtn.closest('.proj-card');
+      var collapse = card.querySelector('.proj-desc-collapse');
+      var isOpen = collapse.classList.toggle('open');
+      expandBtn.setAttribute('aria-expanded', isOpen);
+    }
+
+    function toggleBuilt() {
+      var btn = document.getElementById('built-toggle-btn');
+      var hidden = document.querySelectorAll('.built-item.built-hidden, .built-item[style*="display: none"]');
+      var isExpanded = btn.classList.contains('expanded');
+      if (!isExpanded) {
+        // Show more
+        document.querySelectorAll('.built-item').forEach(function(el) {
+          el.classList.remove('built-hidden');
+          el.style.display = '';
+          builtObs.observe(el);
+        });
+        btn.classList.add('expanded');
+        btn.childNodes[0].textContent = 'Show less';
+      } else {
+        // Show less — hide items beyond index 1 (0-based: keep 0 and 1)
+        var items = document.querySelectorAll('.built-item');
+        items.forEach(function(el, i) {
+          if (i >= 2) {
+            el.classList.add('built-hidden');
+            el.classList.remove('in-view');
+          }
+        });
+        btn.classList.remove('expanded');
+        btn.childNodes[0].textContent = 'Show more';
+      }
+    }
+
+    function toggleProjects() {
+      var btn = document.getElementById('proj-toggle-btn');
+      var more = document.getElementById('proj-more');
+      var isExpanded = btn.classList.contains('expanded');
+      if (!isExpanded) {
+        more.classList.remove('proj-hidden');
+        projRemObs.observe(more);
+        btn.classList.add('expanded');
+        btn.childNodes[0].textContent = 'Show less';
+      } else {
+        more.classList.add('proj-hidden');
+        more.classList.remove('in-view');
+        btn.classList.remove('expanded');
+        btn.childNodes[0].textContent = 'Show more';
+      }
+    }
+
+    // keyboard accessibility for built-items
+    document.querySelectorAll('.built-item').forEach(function(el) {
+      el.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.click(); }
+      });
+    });
 
     (function () {
       var n = document.getElementById('dot-name');
@@ -1454,7 +2366,6 @@
         document.getElementById('loader').classList.add('hidden');
         document.getElementById('main').classList.add('visible');
         document.getElementById('nav').classList.add('visible');
-        document.querySelectorAll('.section-card').forEach(function (el) { el.classList.add('visible'); });
         setTimeout(function () {
           allTags.forEach(function (el) {
             var rect = el.getBoundingClientRect();
@@ -1463,6 +2374,43 @@
         }, 100);
       }, 2000);
     });
+
+    var builtObs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) {
+          var el = e.target;
+          var sibs = Array.from(el.parentNode.querySelectorAll('.built-item'));
+          var i = sibs.indexOf(el);
+          setTimeout(function() { el.classList.add('in-view'); }, i * 80);
+          builtObs.unobserve(el);
+        }
+      });
+    }, { threshold: 0.05 });
+    document.querySelectorAll('.built-item').forEach(function(el) { builtObs.observe(el); });
+
+    var projRemObs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) {
+          var el = e.target;
+          var sibs = Array.from(el.parentNode.querySelectorAll('.proj-remaining-item'));
+          var i = sibs.indexOf(el);
+          setTimeout(function() { el.classList.add('in-view'); }, i * 80);
+          projRemObs.unobserve(el);
+        }
+      });
+    }, { threshold: 0.05 });
+    document.querySelectorAll('.proj-remaining-item').forEach(function(el) { projRemObs.observe(el); });
+
+    var projSecObs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('in-view');
+          projSecObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.05 });
+    var projSec = document.getElementById('projects-section');
+    if (projSec) projSecObs.observe(projSec);
 
     var tagObs = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) { if (e.isIntersecting) { triggerTag(e.target); tagObs.unobserve(e.target); } });
