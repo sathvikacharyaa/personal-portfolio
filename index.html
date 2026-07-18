@@ -911,30 +911,36 @@
       position: fixed;
       inset: 0;
       background: #000;
-      display: none;
+      display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
       padding: 0 40px;
       opacity: 0;
       visibility: hidden;
+      pointer-events: none;
       transition: opacity .35s ease, visibility .35s ease;
       z-index: 490;
       gap: 0
     }
+    /* On desktop, keep it fully out of the way */
+    @media (min-width: 601px) {
+      .nav-menu { display: none !important }
+    }
     .nav-menu.open {
       opacity: 1;
-      visibility: visible
+      visibility: visible;
+      pointer-events: auto
     }
     .nav-menu-link {
-      font-family: 'Inter', sans-serif;
-      font-size: clamp(32px, 10vw, 52px);
-      font-weight: 700;
-      letter-spacing: -.01em;
+      font-family: 'Impact', 'Arial Narrow', sans-serif;
+      font-size: clamp(36px, 12vw, 64px);
+      font-weight: 400;
+      letter-spacing: .04em;
       text-transform: uppercase;
-      color: rgba(255,255,255,.18);
+      color: rgba(255,255,255,.2);
       text-decoration: none;
-      padding: 10px 0;
+      padding: 8px 0;
       width: 100%;
       display: block;
       opacity: 0;
@@ -1579,7 +1585,6 @@
       /* Show hamburger, hide desktop nav links */
       .hamburger-btn { display: flex }
       .nav-inline-links { display: none }
-      .nav-menu { display: flex }
       /* Show stats on mobile, compact */
       .nav-stats { display: flex; margin-right: auto; gap: 8px }
       .nav-controls { margin-left: 8px; gap: 8px }
